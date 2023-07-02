@@ -160,12 +160,12 @@ TextureImporter:
       name: Anxious Overthinker Concept 2 Test_0
       rect:
         serializedVersion: 2
-        x: 238
-        y: 243
-        width: 692
-        height: 2370
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 240
+        y: 233
+        width: 690
+        height: 2380
+      alignment: 9
+      pivot: {x: 0.41406965, y: 0.04853022}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,8 +185,8 @@ TextureImporter:
         y: 226
         width: 709
         height: 2363
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42580104, y: 0.04123219}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,8 +227,8 @@ TextureImporter:
         y: 213
         width: 651
         height: 2336
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5411506, y: 0.04357782}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,8 +248,8 @@ TextureImporter:
         y: 213
         width: 678
         height: 2392
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48372036, y: 0.07152117}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
