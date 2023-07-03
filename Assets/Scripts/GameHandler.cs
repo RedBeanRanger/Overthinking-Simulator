@@ -16,11 +16,11 @@ public class GameHandler : MonoBehaviour
     public static ConfigManager ConfigManager = null;
 
 
-
     // ***** Private Variables *****
     //Script Handling - Scripts that persist throughout the game should never be referenced outside of GameHandler, to avoid introducing dependecies
     private DialogueHandler dialogueHandlerScript = null;
 
+    private bool isInitSuccessful = false;
     private bool isGamePaused = false;
 
 
@@ -46,7 +46,7 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         // Game is Active
-        if (!isGamePaused)
+        if (!isGamePaused && !dialogueHandlerScript.GetOnlyAreThereChoices)
         {
             if (Input.GetKeyDown(ConfigManager.ActionInputs["Action Confirm"]))
             {
@@ -70,14 +70,12 @@ public class GameHandler : MonoBehaviour
         {
             if (isGamePaused)
             {
-                isGamePaused = false;
-                Time.timeScale = 1;
+                unpauseGame();
             }
 
             else
             {
-                isGamePaused = true;
-                Time.timeScale = 0;
+                pauseGame();
             }
         }
     }
@@ -125,7 +123,6 @@ public class GameHandler : MonoBehaviour
         switch (handlerType)
         {
             case "Dialogue":
-                Debug.Log("Dialogue Handler initialised");
                 if (DialogueHandlerInstance == null)
                 {
                     DialogueHandlerInstance = handlerObject;
@@ -135,15 +132,32 @@ public class GameHandler : MonoBehaviour
                     Destroy(handlerObject);
                 }
 
-                handlerObject = GameObject.Find("DialogueHandler");
                 dialogueHandlerScript = handlerObject.GetComponent<DialogueHandler>();
-
+                isInitSuccessful = true;
+                Debug.Log("Dialogue Handler initialised");
                 break;
 
+            default:
+                Debug.LogError("Initialisation of Handler GameObject was unsuccessful: " + handlerObject);
+                break;
         }
-        DontDestroyOnLoad(handlerObject);
+        if (isInitSuccessful){
+            DontDestroyOnLoad(handlerObject);
+            isInitSuccessful = false;
+        }
     }
 
+    private void pauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0;
+    }
+
+    private void unpauseGame()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1;
+    }
 
 
     //***** Deprecated methods *****

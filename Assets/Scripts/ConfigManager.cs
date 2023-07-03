@@ -7,7 +7,6 @@ public class ConfigManager
     // Configuration Manager: Assigns and fetches input keys.
 
 
-
     // ***** Public Variables/Properties *****
 
     public Dictionary<string, KeyCode> ActionInputs { get; set; }
@@ -50,7 +49,6 @@ public class ConfigManager
     // Set Default- Set current keybindings as default. Assume the keys in the dictionaries are always matching.
     public void SetDefault()
     {
-        // Assume the keys are always matching.
         ActionInputs = _defaultActionInputs;
         DirectionInputs = _defaultDirectionInputs;
     }

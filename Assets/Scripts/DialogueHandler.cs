@@ -19,6 +19,7 @@ public class DialogueHandler : MonoBehaviour
     public bool IsTyping { get => isTyping; set => isTyping = false; }
     public bool IsDialogueEndReached { get => isDialogueEndReached; set => isDialogueEndReached = false; }
     public bool TriggerStopTyping { get => triggerStopTyping; set => triggerStopTyping = false; }
+    public bool GetOnlyAreThereChoices { get => areThereChoices; private set => areThereChoices = false; }
 
 
 
@@ -39,15 +40,18 @@ public class DialogueHandler : MonoBehaviour
 
     private GameObject endIndicator;
 
-    
     private InkParser inkParser;
     private Story currentInkStory;
+    private List<Choice> currentChoices;
 
     //linked to properties
     private bool isShowingDialogue;
     private bool isTyping;
     private bool isDialogueEndReached;
     private bool triggerStopTyping;
+    private bool areThereChoices; // this value is only modified in display choices
+
+
 
     // ***** Public Methods *****
 
@@ -73,7 +77,9 @@ public class DialogueHandler : MonoBehaviour
         isShowingDialogue = true;
 
         //test dialogue
-        currentInkStory = new Story(TestInkJson.text);
+        //currentInkStory = new Story(TestInkJson.text);
+        currentInkStory = inkParser.MakeStoryFromTextJSON(TestInkJson);
+
         StartCoroutine(TypeDialogue(currentInkStory.Continue())); //start the typing Coroutine.
         updateTags(); //updates name, portrait
 
@@ -97,10 +103,10 @@ public class DialogueHandler : MonoBehaviour
         {
             dialogueText.text = line;
         }
-        isTyping = false;
         enableEndIndicator();
-        triggerStopTyping = false;
         displayChoices();// Display the choices at the end of the coroutine
+        isTyping = false;
+        triggerStopTyping = false;
     }
 
     public void ContinueDialogue()
@@ -128,20 +134,33 @@ public class DialogueHandler : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
+        Debug.Log("You choose choice: " + choiceIndex);
         currentInkStory.ChooseChoiceIndex(choiceIndex);
-        Debug.Log(choiceIndex);
         disableAllChoices();
+        areThereChoices = false;
         ContinueDialogue();
     }
 
+
+
     // ***** Private Methods *****
 
+    // displayChoices() - display choices if there are any.
     private void displayChoices()
     {
         //currentChoices() is a builtin function for Ink Stories.
-        //Choice is also an object from Ink.Runtime.
-        List<Choice> currentChoices = currentInkStory.currentChoices;
+        //Choice object is from Ink.Runtime.
+        currentChoices = currentInkStory.currentChoices;
 
+        // if there are no choices, don't run any more code
+        if (currentChoices == null || currentChoices.Count == 0)
+        {
+            areThereChoices = false;
+            return;
+        }
+
+
+        // otherwise, display choices.
         //defensive check
         if (currentChoices.Count > choiceButtons.Length)
         {
@@ -150,13 +169,13 @@ public class DialogueHandler : MonoBehaviour
 
         //assign each choice to a button.
         int ind = 0;
+        areThereChoices = true;
         foreach (Choice c in currentChoices)
         {
             choiceButtons[ind].SetActive(true);
             choicesTexts[ind].text = c.text;
             ind += 1;
         }
-
 
         for (int i = ind; i < choiceButtons.Length; i++)
         {
@@ -194,5 +213,4 @@ public class DialogueHandler : MonoBehaviour
         nameText.text = inkParser.CurrentCharValue;
         characterRenderer.sprite = characterSprites[inkParser.CurrentSpriteValueToInt];
     }
-
 }
