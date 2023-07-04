@@ -1,3 +1,4 @@
+INCLUDE Weedy1.ink
 -> Part1
 
 = Part1
@@ -22,7 +23,7 @@ AHHHH w-w-w-what do I do what do I do what do I do!???
         Omg, yes yes yes.
         This is very good.
         I... I... Am I dreaming? You chose a good choice? 
-        -> END
+        -> Part2
     * [This is the Bad Choice]
         WHAT! ARE YOU SURE YOU WANNA PICK THIS???
             * * [Yes]
