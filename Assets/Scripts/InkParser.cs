@@ -6,11 +6,6 @@ using Ink.Runtime;
 public class InkParser
 {
     //*****Constant Variables*****
-    private const string ACTIVE_CHARACTER = "Active"; //specify Left, Center, Right, or None
-    private const string LEFT_CHARA_TAG = "Left"; //specify characterName
-    private const string CENTER_CHARA_TAG = "Center";
-    private const string RIGHT_CHARA_TAG = "Right";
-    private const string EXPRESSION_TAG = "Exp"; //specify sprite index number for the expression
 
     //will be deprecated
     private const string CHARACTER_TAG = "Character";
@@ -20,14 +15,22 @@ public class InkParser
 
 
     //*****public variables & properties*****
-    public string LeftCharacter;
+    public string LeftCharacter; // chara names
     public string CenterCharacter;
     public string RightCharacter;
-    public string ExpressionValue;
 
+    public int LeftExp { get => leftExp; private set => leftExp = 0; }
+    public int CenterExp { get => centerExp; private set => centerExp = 0; }
+    public int RightExp { get => rightExp; private set => rightExp = 0; }
+
+    public string ExpressionValue; // string of expression value, e.g. "1", "5"
+    public string DisplayName;
+
+    // this was a terrible idea in hindsight AHAHA
     public int CurrentExpToInt { get => currentExpToInt; set => currentExpToInt = 0; }
 
-    public List<string> CurrentActiveCharactersGetOnly { get { return currentActiveCharacters; } }
+    public List<string> CurrentActiveCharactersGetOnly { get { return currentActiveCharacters; } } // directions, not chara names
+    public List<string> CurrentOnScreenCharactersGetOnly { get { return currentOnScreenCharacters; } } // directions, not chara names
     public List<string> UpdatedTagsGetOnly { get { return updatedTags; } }
 
 
@@ -42,7 +45,12 @@ public class InkParser
     //*****private variables*****
     private int currentExpToInt;
     private List<string> currentActiveCharacters;
+    private List<string> currentOnScreenCharacters;
     private List<string> updatedTags;
+
+    private int leftExp;
+    private int centerExp;
+    private int rightExp;
 
     //will be deprecated
     private int currentSpriteValueToInt;
@@ -53,21 +61,28 @@ public class InkParser
     public InkParser()
     {
         currentActiveCharacters = new List<string>();
+        currentOnScreenCharacters = new List<string>();
         updatedTags = new List<string>();
     }
 
 
 
-    //*****Public Functions*****
+    //*****Public Methods*****
 
     // HandleTags
     // Pass in tags, split and handle them accordingly whenever a ":" is encountered in the tag.
-    // store which tags were updated in updatedTags.
+    // store updated values in public variables, and store which tags were updated in updatedTags.
     public void HandleTags(List<string> currentTags)
     {
         updatedTags.Clear();
+        bool isThereNewActive = false;
+        bool isThereNewCharacter = false;
+
         foreach (string tag in currentTags)
         {
+            //for debugging
+            Debug.Log(tag);
+
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
             {
@@ -78,22 +93,66 @@ public class InkParser
 
             switch (tagKey)
             {
-                case ACTIVE_CHARACTER:
+                case GameConstants.ACTIVE_CHARACTER:
+                    if (!isThereNewActive)
+                    {
+                        isThereNewActive = true;
+                        currentActiveCharacters.Clear();
+                    }
                     currentActiveCharacters.Add(tagValue);
                     break;
-                case LEFT_CHARA_TAG:
-                    LeftCharacter = tagValue;
+
+                case GameConstants.DISPLAY_NAME:
+                    DisplayName = tagValue;
                     break;
-                case CENTER_CHARA_TAG:
-                    CenterCharacter = tagValue;
-                    break;
-                case RIGHT_CHARA_TAG:
-                    RightCharacter = tagValue;
-                    break;
-                case EXPRESSION_TAG:
+
+                case GameConstants.EXPRESSION_TAG:
                     ExpressionValue = tagValue;
                     currentExpToInt = int.Parse(ExpressionValue);
                     break;
+
+                case GameConstants.LEFT_CHARA_TAG:
+                    if (!isThereNewCharacter)
+                    {
+                        isThereNewCharacter = true;
+                        currentOnScreenCharacters.Clear();
+                    }
+                    LeftCharacter = tagValue;
+                    currentOnScreenCharacters.Add(tagKey);
+                    break;
+
+                case GameConstants.CENTER_CHARA_TAG:
+                    if (!isThereNewCharacter)
+                    {
+                        isThereNewCharacter = true;
+                        currentOnScreenCharacters.Clear();
+                    }
+                    CenterCharacter = tagValue;
+                    currentOnScreenCharacters.Add(tagKey);
+                    break;
+
+                case GameConstants.RIGHT_CHARA_TAG:
+                    if (!isThereNewCharacter)
+                    {
+                        isThereNewCharacter = true;
+                        currentOnScreenCharacters.Clear();
+                    }
+                    RightCharacter = tagValue;
+                    currentOnScreenCharacters.Add(tagKey);
+                    break;
+
+                case GameConstants.LEFT_EXP_TAG:
+                    leftExp = int.Parse(tagValue);
+                    break;
+
+                case GameConstants.CENTER_EXP_TAG:
+                    centerExp = int.Parse(tagValue);
+                    break;
+
+                case GameConstants.RIGHT_EXP_TAG:
+                    rightExp = int.Parse(tagValue);
+                    break;
+
 
                 //following will be deprecated
                 case CHARACTER_TAG:
@@ -117,7 +176,9 @@ public class InkParser
             updatedTags.Add(tagKey);
         }
 
-        //Debug.Log("Updated Tags: " + updatedTags.ToString());
+        // For debugging
+        //printInDebugWhatUpdated(updatedTags);
+        //printInDebugWhatUpdated(currentOnScreenCharacters);
     }
 
     // Return a new Story object, passing in the JSON string from parameter TextAsset textJson.
@@ -127,5 +188,41 @@ public class InkParser
         return story;
     }
 
+
+
+    //*****Private Methods*****
+
+
+    //Helper. Is this the first time we detect a new actives to be added? Then, clear the previous actives before adding new actives.
+    private void isNewActiveAdded(bool isThere)
+    {
+        if (!isThere)
+        {
+            isThere = true;
+            currentActiveCharacters.Clear();
+        }
+
+    }
+
+    //Helper. Is this the first time we detect new characters on the screen? Then, clear the previous characters before adding new characters.
+    private void isNewCharacterAdded(bool isThere)
+    {
+        if (!isThere)
+        {
+            isThere = true;
+            currentOnScreenCharacters.Clear();
+        }
+
+    }
+
+
+    // For debugging. In the console, print everything that updated in one of the string lists storing things.
+    private void printInDebugWhatUpdated(List<string> whatUpdated)
+    {
+        foreach (string t in whatUpdated)
+        {
+            Debug.Log("Updated " + t);
+        }
+    }
 
 }

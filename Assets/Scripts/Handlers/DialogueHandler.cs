@@ -10,16 +10,23 @@ public class DialogueHandler : MonoBehaviour
     // ***** Public Fields *****
     public GameObject ChoiceCanvas;
     public GameObject DialogueCanvas;
-    public TextAsset TestInkJson;
+    public GameObject NameBox; //temporary
+    public Story CurrentInkStory;
+
+    public string CurrentLine;
+
+    //public TextAsset TestInkJson;
 
     public float TypeDelay = 2.5f; //How much time to wait
 
     //properties
+    public string DisplayName { get; set; }
+
     public bool IsShowingDialogue { get => isShowingDialogue; set => isShowingDialogue = false; }
     public bool IsTyping { get => isTyping; set => isTyping = false; }
     public bool IsDialogueEndReached { get => isDialogueEndReached; set => isDialogueEndReached = false; }
     public bool TriggerStopTyping { get => triggerStopTyping; set => triggerStopTyping = false; }
-    public bool GetOnlyAreThereChoices { get => areThereChoices; private set => areThereChoices = false; }
+    public bool AreThereChoicesGetOnly { get => areThereChoices; private set => areThereChoices = false; }
 
 
 
@@ -40,8 +47,7 @@ public class DialogueHandler : MonoBehaviour
 
     private GameObject endIndicator;
 
-    private InkParser inkParser;
-    private Story currentInkStory;
+    //private InkParser inkParser;
     private List<Choice> currentChoices;
 
     //linked to properties
@@ -55,33 +61,35 @@ public class DialogueHandler : MonoBehaviour
 
     // ***** Public Methods *****
 
-    public void OnStart()
+    public void OnCallStart()
     {
         endIndicator = GameObject.Find("EndIndicator");
-        inkParser = new InkParser();
+        //inkParser = new InkParser();
         choicesTexts = new List<TextMeshProUGUI>();
         foreach (GameObject choice in choiceButtons)
         {
-            choice.SetActive(false);
-            //Debug.Log(choice.activeSelf);
+            choice.SetActive(true); // in case the choices weren't active to begin with.
             choicesTexts.Add(choice.transform.GetChild(0).GetComponent<TextMeshProUGUI>());
             if (choice.transform.GetChild(0).GetComponent<TextMeshProUGUI>() == null)
             {
                 Debug.LogWarning("One of the children is empty.");
             }
+            choice.SetActive(false); // once the process is done, deactivate the choice.
+            //Debug.Log(choice.activeSelf);
         }
     }
 
     public void ShowDialogue()
     {
         isShowingDialogue = true;
+        ContinueDialogue();
 
         //test dialogue
-        //currentInkStory = new Story(TestInkJson.text);
-        currentInkStory = inkParser.MakeStoryFromTextJSON(TestInkJson);
+        //CurrentInkStory = new Story(TestInkJson.text);
+        //CurrentInkStory = inkParser.MakeStoryFromTextJSON(TestInkJson);
 
-        StartCoroutine(TypeDialogue(currentInkStory.Continue())); //start the typing Coroutine.
-        updateTags(); //updates name, portrait
+        //StartCoroutine(TypeDialogue(CurrentInkStory.Continue())); //start the typing Coroutine.
+        //updateTags(); //updates name, portrait
 
     }
 
@@ -111,6 +119,7 @@ public class DialogueHandler : MonoBehaviour
 
     public void ContinueDialogue()
     {
+        //Debug.Log(CurrentInkStory.canContinue);
         if (isTyping)
         {
             triggerStopTyping = true;
@@ -121,10 +130,10 @@ public class DialogueHandler : MonoBehaviour
             return;
         }
 
-        if (currentInkStory.canContinue)
+        if (CurrentInkStory.canContinue)
         {
-            StartCoroutine(TypeDialogue(currentInkStory.Continue()));
-            updateTags(); // updates name, portrait here
+            StartCoroutine(TypeDialogue(CurrentInkStory.Continue()));
+            //updateTags(); // updates name, portrait here
         }
         else
         {
@@ -132,10 +141,23 @@ public class DialogueHandler : MonoBehaviour
         }
     }
 
+    public void ShowName()
+    {
+        if (!NameBox.activeSelf)
+        {
+            NameBox.SetActive(true);
+        }
+        nameText.text = DisplayName;
+        if (DisplayName == GameConstants.NONE)
+        {
+            NameBox.SetActive(false);
+        }
+    }
+
     public void MakeChoice(int choiceIndex)
     {
-        Debug.Log("You choose choice: " + choiceIndex);
-        currentInkStory.ChooseChoiceIndex(choiceIndex);
+        //Debug.Log("You choose choice: " + choiceIndex);
+        CurrentInkStory.ChooseChoiceIndex(choiceIndex);
         disableAllChoices();
         areThereChoices = false;
         ContinueDialogue();
@@ -150,7 +172,7 @@ public class DialogueHandler : MonoBehaviour
     {
         //currentChoices() is a builtin function for Ink Stories.
         //Choice object is from Ink.Runtime.
-        currentChoices = currentInkStory.currentChoices;
+        currentChoices = CurrentInkStory.currentChoices;
 
         // if there are no choices, don't run any more code
         if (currentChoices == null || currentChoices.Count == 0)
@@ -207,10 +229,14 @@ public class DialogueHandler : MonoBehaviour
         endIndicator.SetActive(false);
     }
 
+    // to be deprecated
+    /*
     private void updateTags()
     {
-        inkParser.HandleTags(currentInkStory.currentTags);
+        //updateName(DisplayName);
+        inkParser.HandleTags(CurrentInkStory.currentTags);
         nameText.text = inkParser.CurrentCharValue;
         characterRenderer.sprite = characterSprites[inkParser.CurrentSpriteValueToInt];
     }
+    */
 }

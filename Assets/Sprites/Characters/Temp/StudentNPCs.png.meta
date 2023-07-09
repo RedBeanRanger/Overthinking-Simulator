@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: bedbd62f33ae15340b217819632af44d
+guid: d37557dc16c9e5543a0c71833e15f44e
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -988781329524767699
-    second: TempNPC_0
-  - first:
-      213: 1079402678001840046
-    second: TempNPC_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -53,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -96,54 +90,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -159,43 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TempNPC_0
+      name: StudentNPCs_0
       rect:
         serializedVersion: 2
-        x: 277
-        y: 309
-        width: 1290
-        height: 1712
+        x: 228
+        y: 258
+        width: 786
+        height: 2423
       alignment: 9
-      pivot: {x: 0.4653751, y: -0.54368186}
+      pivot: {x: 0.5722407, y: 0.059410065}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d24432d9e942742f0800000000000000
-      internalID: -988781329524767699
+      spriteID: cc9dc8847f446ab4c9114e5c9a71bba6
+      internalID: -2072304834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TempNPC_1
+      name: StudentNPCs_1
       rect:
         serializedVersion: 2
-        x: 2181
-        y: 307
-        width: 1013
-        height: 1770
+        x: 1267
+        y: 313
+        width: 851
+        height: 2392
       alignment: 9
-      pivot: {x: 0.49784273, y: -0.53532714}
+      pivot: {x: 0.53010607, y: 0.032167006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eafa7e7440fcafe00800000000000000
-      internalID: 1079402678001840046
+      spriteID: a9617c705edf9e44091eeda5c218893b
+      internalID: 1630907315
       vertices: []
       indices: 
       edges: []
@@ -211,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TempNPC_0: -988781329524767699
-      TempNPC_1: 1079402678001840046
+      StudentNPCs_0: -2072304834
+      StudentNPCs_1: 1630907315
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
