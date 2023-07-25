@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8b1e0066c73054ca69e2a238add251, type: 3}
+  m_Name: Proto_HistoryClass1
+  m_EditorClassIdentifier: 
+  Name: Proto_History1
+  BackgroundSprite: {fileID: 21300000, guid: b799452a4827c3841846351ea7fb80e0, type: 3}
+  InkTextJSON: {fileID: 4900000, guid: 92ec033b065a2b441a83141890d9bd76, type: 3}
+  NextScene: {fileID: 11400000, guid: 8bcd267eb91a6e74998aefa2756545a3, type: 2}

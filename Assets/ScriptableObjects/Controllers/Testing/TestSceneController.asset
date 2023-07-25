@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb6142097e2d07499d18d1260c917b1, type: 3}
+  m_Name: TestSceneController
+  m_EditorClassIdentifier: 
+  GameScenes:
+  - {fileID: 11400000, guid: 21358e36c7983ba4db435068a7fcfd7c, type: 2}
+  CurrentGameSceneData: {fileID: 11400000, guid: 21358e36c7983ba4db435068a7fcfd7c, type: 2}
+  CurrentGameSceneIndex: 0

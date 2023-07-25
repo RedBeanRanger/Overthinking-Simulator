@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0a3bbc09d5cb44ebfcf645a00e7dce, type: 3}
+  m_Name: AnxiousChanStartData
+  m_EditorClassIdentifier: 
+  DefaultSBarValue: 15
+  DefaultHBarValue: 11
+  DefaultPBarValue: 6
+  DefaultABarValue: 20

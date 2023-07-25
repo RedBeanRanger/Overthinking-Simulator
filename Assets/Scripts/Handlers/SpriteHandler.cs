@@ -9,8 +9,13 @@ public class SpriteHandler : MonoBehaviour
     public GameObject CenterSprite;
     public GameObject RightSprite;
 
-    public Sprite[] NPCSprites;
     public Sprite[] AnxiousSprites;
+
+    public Sprite[] HistoryTeacherSprites;
+    public Sprite[] BlondeFriendSprites;
+
+    public Sprite[] NPCSprites;
+    public Sprite[] StudentNPCSprites;
 
 
     //*****private variables*****
@@ -72,6 +77,14 @@ public class SpriteHandler : MonoBehaviour
                 case GameConstants.RIGHT_CHARA_TAG:
                     RightSprite.SetActive(true);
                     rightIsOn = true;
+                    break;
+
+                // some finicky code
+                // if there is a NONE in any of the position tags, don't render a single sprite on screen.
+                case GameConstants.NONE:
+                    leftIsOn = false;
+                    centerIsOn = false;
+                    rightIsOn = false;
                     break;
             }
 
@@ -169,6 +182,14 @@ public class SpriteHandler : MonoBehaviour
                         rightActive = true;
                     }
                     break;
+                case GameConstants.NONE:
+                    leftSpriteRenderer.color = GameConstants.IDLE_COLOR;
+                    centerSpriteRenderer.color = GameConstants.IDLE_COLOR;
+                    rightSpriteRenderer.color = GameConstants.IDLE_COLOR;
+                    leftActive = false;
+                    centerActive = false;
+                    rightActive = false;
+                    break;
             }
 
             // set the sprites that are on but not active as idle color
@@ -219,10 +240,32 @@ public class SpriteHandler : MonoBehaviour
                 currentSpritesRef = AnxiousSprites;
                 break;
 
+            // Side Characters
+
+            case GameConstants.BLONDE_FRIEND:
+                currentSpritesRef = BlondeFriendSprites;
+                break;
+
+            case GameConstants.HISTORY_TEACHER:
+                currentSpritesRef = HistoryTeacherSprites;
+                break;
+
             //NPCs
             case GameConstants.BLOB_NPC:
                 currentSpritesRef = NPCSprites;
                 break;
+
+            case GameConstants.STUDENT_NPC:
+                currentSpritesRef = StudentNPCSprites;
+                break;
+
+            //default
+            default:
+                Sprite image = null;
+                Sprite[] NoneSprite = { image };
+                currentSpritesRef = NoneSprite;
+                break;
+
         }
     }
 

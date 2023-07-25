@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
@@ -20,12 +21,24 @@ public class GameHandler : MonoBehaviour
     // Managers
     public static ConfigManager ConfigManager = null;
 
+    //Scriptable Object Controllers
+    public BarController barControllerSO;
+    public SceneController sceneControllerSO;
+
+    // for testing purposes
+    public Slider SBar;
+    public Slider HBar;
+    public Slider PBar;
+    public Slider ABar;
+    public GameObject Background;
+
 
     // ***** Private Variables *****
     //Script Handling - Handler Scripts that persist throughout the game should never be referenced outside of GameHandler, to avoid introducing dependecies
     private DialogueHandler dialogueHandlerScript = null;
     private SpriteHandler spriteHandlerScript = null;
     private StoryHandler storyHandlerScript = null;
+
 
     private Story currentStory;
 
@@ -38,17 +51,28 @@ public class GameHandler : MonoBehaviour
 
 
     //*****Monobehaviour Functions*****
-    // ONLY THIS CLASS should directly use Awake, Start and Update(s), to avoid introducing dependecies and to ensure the order of code execution, 
+    // ONLY THIS CLASS should directly use Awake, Start and Update(s), to avoid introducing dependecies and to ensure the order of code execution
+    // OnEnable on the controllers will activate before Start.
 
     void Awake()
     {
         //Debug.Log("Game Handler is Awake");
         init();
+
     }
 
     void Start()
     {
-        currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
+
+        //currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
+        currentStory = inkParser.MakeStoryFromTextJSON(sceneControllerSO.CurrentGameSceneData.InkTextJSON);
+        barControllerSO.BarValueChangeEvent.AddListener(ChangeSliderValue);
+
+
+        //bind story function to the barController function.
+        // nvm, binding occurs in loadGame();
+        //currentStory.BindExternalFunction("ChangeBarValue", (string barName, int amount) => { barControllerSO.ChangeBarValue(barName, amount); });
+
         dialogueHandlerScript.CurrentInkStory = currentStory;
 
 
@@ -57,17 +81,25 @@ public class GameHandler : MonoBehaviour
         spriteHandlerScript.OnCallStart();
 
         inkParser.HandleTags(currentStory.currentTags);
+
+        //For Debugging
+        /*
         foreach (string s in inkParser.CurrentOnScreenCharactersGetOnly)
         {
             Debug.Log("InkParser is holding " + s + " on screen.");
         }
-
+        */
 
         if (!dialogueHandlerScript.IsShowingDialogue && !dialogueHandlerScript.IsTyping)
         {
             loadGame();
         }
 
+    }
+
+    void OnDisable()
+    {
+        barControllerSO.BarValueChangeEvent.RemoveListener(ChangeSliderValue);
     }
 
     void Update()
@@ -113,6 +145,8 @@ public class GameHandler : MonoBehaviour
                 //The following block of code loops the game back when it's done.
                 if (!dialogueHandlerScript.IsShowingDialogue && !dialogueHandlerScript.IsTyping)
                 {
+                    //this doesn't do anything if there are no more game scene data left.
+                    sceneControllerSO.UpdateGameSceneData();
                     //reload the story
                     loadGame();
                 }
@@ -138,6 +172,32 @@ public class GameHandler : MonoBehaviour
     void FixedUpdate()
     {
 
+    }
+
+
+
+    // *****Public Methods*****
+    public void ChangeSliderValue(string barName, int newBarValue)
+    {
+        switch (barName)
+        {
+            case "SBar":
+                SBar.value = (float)newBarValue;
+                Debug.Log("SBar Value Changed.");
+                break;
+            case "HBar":
+                HBar.value = (float)newBarValue;
+                Debug.Log("HBar Value Changed.");
+                break;
+            case "PBar":
+                PBar.value = (float)newBarValue;
+                Debug.Log("PBar Value Changed.");
+                break;
+            case "ABar":
+                ABar.value = (float)newBarValue;
+                break;
+
+        }
     }
 
 
@@ -275,8 +335,16 @@ public class GameHandler : MonoBehaviour
     //temporary helper
     private void loadGame()
     {
-        currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
+        //currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
+        // set story and background
+        //using SceneController
+        currentStory = inkParser.MakeStoryFromTextJSON(sceneControllerSO.CurrentGameSceneData.InkTextJSON);
+        Background.GetComponent<SpriteRenderer>().sprite = sceneControllerSO.CurrentGameSceneData.BackgroundSprite;
+
+
         dialogueHandlerScript.CurrentInkStory = currentStory;
+        //currentStory.BindExternalFunction("ChangeBarValue", (string barName, int amount) => { Debug.Log("Yoohoohoo it's bound! " + barName + " " + amount); });
+        currentStory.BindExternalFunction("ChangeBarValue", (string barName, int amount) => { barControllerSO.ChangeBarValue(barName, amount); });
 
         dialogueHandlerScript.ShowDialogue();
 

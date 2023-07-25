@@ -25,6 +25,10 @@ public class GameConstants
     // Character Names
     public const string ANXIOUS_MC = "AnxiousChan";
 
+    // Side Characters
+    public const string HISTORY_TEACHER = "HistoryTeacher";
+    public const string BLONDE_FRIEND = "BlondeFriend";
+
     // NPCs
     public const string BLOB_NPC = "NPC";
     public const string STUDENT_NPC = "StudentNPC";

@@ -11,7 +11,6 @@ And so, with a tentative determination, Anxious-chan set off for school.
 #Name:???
 Hey, Rude-chan?
 
-#Left:NPC #Right:NPC
 #Active:Right 
 #Name:Rude-chan
 Nani, Rude-kun?

@@ -13,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Effects
   - 
   - 
   - 
@@ -48,4 +48,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1320080375
+    locked: 0
+  - name: Popup
+    uniqueID: 1917445923
     locked: 0

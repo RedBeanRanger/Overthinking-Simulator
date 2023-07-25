@@ -57,12 +57,14 @@ public class DialogueHandler : MonoBehaviour
     private bool triggerStopTyping;
     private bool areThereChoices; // this value is only modified in display choices
 
-
+    //testing purposes
+    public BarController barControllerSO;
 
     // ***** Public Methods *****
 
     public void OnCallStart()
     {
+
         endIndicator = GameObject.Find("EndIndicator");
         //inkParser = new InkParser();
         choicesTexts = new List<TextMeshProUGUI>();
