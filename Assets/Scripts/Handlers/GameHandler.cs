@@ -23,7 +23,7 @@ public class GameHandler : MonoBehaviour
 
     //Scriptable Object Controllers
     public BarController barControllerSO;
-    public SceneController sceneControllerSO;
+    public GameSceneController gameSceneControllerSO;
 
     // for testing purposes
     public Slider SBar;
@@ -65,7 +65,7 @@ public class GameHandler : MonoBehaviour
     {
 
         //currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
-        currentStory = inkParser.MakeStoryFromTextJSON(sceneControllerSO.CurrentGameSceneData.InkTextJSON);
+        currentStory = inkParser.MakeStoryFromTextJSON(gameSceneControllerSO.CurrentGameSceneData.InkTextJSON);
         barControllerSO.BarValueChangeEvent.AddListener(ChangeSliderValue);
 
 
@@ -146,7 +146,7 @@ public class GameHandler : MonoBehaviour
                 if (!dialogueHandlerScript.IsShowingDialogue && !dialogueHandlerScript.IsTyping)
                 {
                     //this doesn't do anything if there are no more game scene data left.
-                    sceneControllerSO.UpdateGameSceneData();
+                    gameSceneControllerSO.UpdateGameSceneData();
                     //reload the story
                     loadGame();
                 }
@@ -338,8 +338,8 @@ public class GameHandler : MonoBehaviour
         //currentStory = inkParser.MakeStoryFromTextJSON(storyHandlerScript.CurrentTextJSON);
         // set story and background
         //using SceneController
-        currentStory = inkParser.MakeStoryFromTextJSON(sceneControllerSO.CurrentGameSceneData.InkTextJSON);
-        Background.GetComponent<SpriteRenderer>().sprite = sceneControllerSO.CurrentGameSceneData.BackgroundSprite;
+        currentStory = inkParser.MakeStoryFromTextJSON(gameSceneControllerSO.CurrentGameSceneData.InkTextJSON);
+        Background.GetComponent<SpriteRenderer>().sprite = gameSceneControllerSO.CurrentGameSceneData.BackgroundSprite;
 
 
         dialogueHandlerScript.CurrentInkStory = currentStory;

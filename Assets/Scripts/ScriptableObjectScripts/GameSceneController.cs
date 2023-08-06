@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Scene Controller SO", menuName = "ScriptableObjects/Scene Controller SO")]
-public class SceneController : ScriptableObject
+[CreateAssetMenu(fileName = "Game Scene Controller SO", menuName = "ScriptableObjects/Game Scene Controller SO")]
+public class GameSceneController : ScriptableObject
 {
     //*****public variables*****//
     public GameSceneData[] GameScenes;
@@ -34,16 +34,16 @@ public class SceneController : ScriptableObject
 
     public void UpdateGameSceneData()
     {
-        if (IsThereMoreScenes())
+        if (IsThereMoreGameScenes())
         {
             CurrentGameSceneIndex = getNextGameSceneIndex();
             CurrentGameSceneData = getGameSceneData();
         }
     }
 
-    public bool IsThereMoreScenes()
+    public bool IsThereMoreGameScenes()
     {
-        if (CurrentGameSceneData.NextScene != null)
+        if (CurrentGameSceneData.NextScene != null && GameScenes.Length > 1)
         {
             return true;
         }
@@ -56,9 +56,10 @@ public class SceneController : ScriptableObject
     {
         string nextGameSceneName = CurrentGameSceneData.NextScene.Name;
         int nextGameSceneInd = Array.IndexOf(gameSceneNames, nextGameSceneName); //get the next scene's index
-        if (nextGameSceneInd == 0)
+        if (nextGameSceneInd == -1)
         {
-            Debug.LogWarning("Warning: Next Game Scene is set to GameScenes[0]. Check if a valid next game scene name existed.");
+            Debug.LogWarning("Warning: No valid nextGameSceneInd. Check if the next game scene name was valid. Next Game Scene will be set to GameScenes[0].");
+            return 0;
         }
         return nextGameSceneInd;
     }

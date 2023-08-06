@@ -71,8 +71,8 @@ public class DialogueHandler : MonoBehaviour
         foreach (GameObject choice in choiceButtons)
         {
             choice.SetActive(true); // in case the choices weren't active to begin with.
-            choicesTexts.Add(choice.transform.GetChild(0).GetComponent<TextMeshProUGUI>());
-            if (choice.transform.GetChild(0).GetComponent<TextMeshProUGUI>() == null)
+            choicesTexts.Add(choice.transform.GetChild(1).GetComponent<TextMeshProUGUI>());
+            if (choice.transform.GetChild(1).GetComponent<TextMeshProUGUI>() == null)
             {
                 Debug.LogWarning("One of the children is empty.");
             }

@@ -156,7 +156,7 @@ MonoBehaviour:
   SpriteHandlerObject: {fileID: 425486452}
   StoryHandlerObject: {fileID: 1195073856}
   barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
-  sceneControllerSO: {fileID: 11400000, guid: 4872ace8efda3af459ffb84b62024375, type: 2}
+  gameSceneControllerSO: {fileID: 11400000, guid: 4872ace8efda3af459ffb84b62024375, type: 2}
   SBar: {fileID: 1639740678}
   HBar: {fileID: 322701906001850577}
   PBar: {fileID: 1604108620593899151}
@@ -253,6 +253,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213664347}
   m_CullTransparentMesh: 1
+--- !u!1 &303012372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6212101310055189786, guid: f2b8ff7e868766b4d944bb94c7760af5, type: 3}
+  m_PrefabInstance: {fileID: 1826720505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &313041643 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8703496862390516912, guid: f2b8ff7e868766b4d944bb94c7760af5, type: 3}
@@ -322,8 +327,15 @@ MonoBehaviour:
   - {fileID: 240992706, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: -208718514, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: 368234819, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
-  HistoryTeacherSprites: []
-  BlondeFriendSprites: []
+  HistoryTeacherSprites:
+  - {fileID: 953856385, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
+  - {fileID: 2038504024, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
+  BlondeFriendSprites:
+  - {fileID: 1335189894, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  - {fileID: -693676036, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  - {fileID: -196314961, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  - {fileID: -272381973, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  - {fileID: 1128090945, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   NPCSprites:
   - {fileID: -988781329524767699, guid: bedbd62f33ae15340b217819632af44d, type: 3}
   - {fileID: 1079402678001840046, guid: bedbd62f33ae15340b217819632af44d, type: 3}
@@ -666,6 +678,7 @@ MonoBehaviour:
   - {fileID: 817718906}
   - {fileID: 313041643}
   - {fileID: 1781476827}
+  - {fileID: 303012372}
   choicesTexts: []
   barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
 --- !u!4 &959017737
@@ -2636,7 +2649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5381905046656687986, guid: 9995711cf66d0fd4bba725e0dbe86b57, type: 3}
       propertyPath: m_Value
-      value: 89
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5381905048244109636, guid: 9995711cf66d0fd4bba725e0dbe86b57, type: 3}
       propertyPath: m_AnchorMax.x

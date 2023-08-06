@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Proto_HistoryClass2
   m_EditorClassIdentifier: 
   Name: Proto_History2
-  BackgroundSprite: {fileID: 21300000, guid: b799452a4827c3841846351ea7fb80e0, type: 3}
+  BackgroundSprite: {fileID: 21300000, guid: a986c80f299bdf94aac5ebe0da2dc258, type: 3}
   InkTextJSON: {fileID: 4900000, guid: 458203f809e49b74fa0dd296fe6a10c6, type: 3}
   NextScene: {fileID: 11400000, guid: fb9afcdfcb06975479447f6623af229f, type: 2}
+  PossibleNextScenes: []

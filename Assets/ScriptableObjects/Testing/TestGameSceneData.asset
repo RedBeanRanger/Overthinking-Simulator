@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: TestGameScene
   BackgroundSprite: {fileID: 21300000, guid: b800883b48ddd1744a835256233ad409, type: 3}
-  InkTextJSON: {fileID: 4900000, guid: 1e763a1e0aeec514595358942bf332ff, type: 3}
+  InkTextJSON: {fileID: 4900000, guid: 92ec033b065a2b441a83141890d9bd76, type: 3}
   NextScene: {fileID: 0}
+  PossibleNextScenes: {fileID: 0}

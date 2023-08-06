@@ -210,27 +210,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blonde friend spaced out2_6
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 1465
-        width: 15
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b0a95ca761cae84e83e8243c398c667
-      internalID: -287474888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: blonde friend spaced out2_7
       rect:
         serializedVersion: 2

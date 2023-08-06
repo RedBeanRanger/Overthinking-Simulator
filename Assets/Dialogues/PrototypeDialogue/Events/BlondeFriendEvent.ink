@@ -30,7 +30,7 @@ Wait. Why am I panicking. She's my friend.
 ...
 Do I... say hi? Am I... obligated to say hi?
 
-* [Say hi]
+* [SAY "HI" NOT "BYE"!]
     ...
     ~ ChangeABar(15)
     Anxiety is rising!
@@ -77,7 +77,7 @@ Do I... say hi? Am I... obligated to say hi?
     By not avoiding social interaction, Anxious-chan exchanged some happiness for more social adjustedness.
     The two of you get to school together with no problem.
     ->END
-* [Goodbye]
+* [GOOD BYE! NO "HI"!]
     (Shhh... she doesn't know I'm here.)
     #Name:NONE
     Anxious-chan decided to hide and wait for her friend to go on ahead.

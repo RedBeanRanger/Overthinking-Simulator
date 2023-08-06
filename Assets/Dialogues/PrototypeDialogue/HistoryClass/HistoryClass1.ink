@@ -7,19 +7,37 @@ INCLUDE DozeOff1.ink
 ===Class1Intro===
 #Center:NONE
 #Name:NONE
+#Active:NONE
 The first class today is history.
 
 #Center:HistoryTeacher
 #CenterExp:0
 #Active: Center
-This is the history teacher, Mircea Dascalu.
+This is the history teacher, Mr. Dascalu.
+
+
+#Name: Mr. Dascalu
+My full name is Mircea Dascalu. Coincidentally, Dascalu is a Romanian surname meaning "teacher".
+
+#Active:NONE
+#Name:NONE
+Omg, wait, he can hear this?
+Marry me right now, tall man!
+
+#Active:Center
+#Name: Mr. Dascalu
+...Pardon me. I'm flattered, but I'm afraid I'm not interested in 3D beings.
+
+#Active:NONE
+#Name:NONE
+OUCH!
 Mr. Dascalu is notorious for giving incredibly long lectures with no student interaction.
+#Active:Center
 In his words: "How could you trust children to govern themselves, when not even adults could be trusted to do so?"
 "The weak and foolish will always question the authority if given the opportunity. Therefore, the authority must not provide opportunity."
 
 #Center:AnxiousChan
 #CenterExp:0
-#Active: Center
 #Name:NONE
 Knowing the teacher's reputation, Anxious-chan seriously doubts she can concentrate in class.
 What should Anxious-chan do?
@@ -45,7 +63,7 @@ Much like the other crusades, it was ultimately a failure.
 Before we get into the details, we shall examine the context of the situation.
 In 1443-1444, Europe was in the middle of the Renaissance.
 This was a time of cultural, intellectual, and economic flourishing, and advancement towards modernity.
-Anyway. This was also a time of moral indifference towards the Ottoman conquest occuring at the eastern European front.
+This was also a time of moral indifference towards the Ottoman conquest occuring at the eastern European front.
 Prior to the Crusade of Varna, the western powers had failed to defend their eastern territories to such a large degree 
 that the Ottoman Sultan, Murad II, was able to bring his Turkish forces all the way into the Balkans.
 Originally, the catholic church had planned for a crusade long before 1443.
@@ -61,7 +79,25 @@ Only the Catalan Company of Aragon of the Kingdom of Spain engaged in crusades, 
 The Holy Roman Empire encompassed hundreds of tiny kingdoms, states, free cities in the Germanies, and was most directly 
 affected by the Ottoman threat.
 Yet, the Empire didn't take substantial action to oppose the Ottomans before Sigismund of Luxembourg was crowned emperor.
-Thus, we can see the importance of strong governing body in regards to military affairs.
+The past emperors of the Holy Roman Empire always failed to unite the Empire's feudal leaders together to fight back.
+This was largely because the emperors of the Holy Roman Empire were selected by a committee of feudal leaders within the Empire.
+The committee had incentive to pick weak emperors, as weaker candidates left the feudal lords in the committee with vast amounts 
+of power and freedom to do whatever they fancied.
+King Sigismund, however, was an exception. He was a man of great vision, and saw need for reforms to the government.
+He became a force of resistance against the Ottoman invasion.
+Even if partly compelled by geographic location, he did more than his predecessors and his peers in terms of territory defense.
+He founded the Order of the Dragon, a crusading order for select high aristocracy and monarchs.
+A side note, one of the members of the Order of the Dragon was Vlad II, voivode of Wallachia.
+He was dubbed Vlad Dracul in honor of his membership.
+Vlad II, in fact, was a hostage prince raised at King Sigismund's court, in order to keep his country Wallachia, which sat 
+at the entry point to Europe for the Ottomans, loyal to the Holy Roman Empire.
+You may be familiar with the name "Dracula", meaning "son of Dracul", which referred to the sons of Vlad II,
+which included one Vlad III whose would be remembered for his monstrous reputation and immortalized in popular conscious.
+Anyway. Despite knowing the importance of holding his borders, King Sigismund could only delay the Turkish advance.
+His crusades were also unsuccessful, but at least he attempted them.
+When King Sigismund died in 1437, Sultan Murad II took the opportunity to intensify attacks in the years after.
+Thus, our stage is set for the Crusade of Varna of 1443.
+From these events, we can see the importance of strong governing body in regards to military affairs.
 Truly, you cannot count on other nations to protect your country's borders for you.
 -> HistoryClassOutro
 

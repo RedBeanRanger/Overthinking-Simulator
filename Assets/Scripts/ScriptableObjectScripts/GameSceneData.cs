@@ -10,5 +10,6 @@ public class GameSceneData : ScriptableObject
     public Sprite BackgroundSprite;
     public TextAsset InkTextJSON;
     public GameSceneData NextScene;
+    public GameSceneData [] PossibleNextScenes;
 
 }

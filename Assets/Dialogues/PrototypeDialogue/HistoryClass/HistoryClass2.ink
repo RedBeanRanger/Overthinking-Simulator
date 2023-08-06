@@ -9,14 +9,23 @@ INCLUDE DozeOff1.ink
 #Center:HistoryTeacher
 #CenterExp:0
 #Name:Mr. Dascalu
-#Active: Center
+#Active:Center
 Good afternoon.
-Before we begin, I would like to explain some things.
-Normally, you would not have two history lessons in a day. That being said, you may be wondering why you are today.
-As it turns out, the only teacher who showed up today is myself.
-The other teachers heard that this is "just a prototype", so decided it would be fine to not show up.
-In fact, the entire science department resigned upon hearing about this news. 
-"What kind of school has a prototype day?" They even speculated this was all a massive simulation. 
+
+#Active:NONE
+#Name:Students
+(All groan in chorus.)
+#Name:A Loud Student
+NOT HISTORY AGAIN!
+
+#Name:Mr. Dascalu
+#Active:Center
+Settle down now. We are about to begin.
+Allow me to explain the situation. Normally, you would not have two history lessons in a day. However, you will today.
+This is because the only teacher who showed up today is myself.
+The other teachers heard that this is "just a prototype", so they've decided their attendance is optional.
+In fact, the entire science department resigned upon hearing this news. 
+"What kind of school has a prototype day?" they said. They even speculated this was all a massive simulation. 
 While that may be the case, I, personally, see no reason to work less whatsoever.
 Men who tread the roads of least resistance can never become powerful kings, and simulated power is still power.
 All of you will LEARN. I shall skewer knowledge and discipline into your brains, such that one day you may become great.
@@ -42,26 +51,54 @@ But will Anxious-chan really learn?
 #CenterExp:0
 #Name:Mr. Dascalu
 #Active: Center
-Last time, I described the Holy Roman Empire as being ineffective in its defense against the Ottomans.
-Indeed, the Ottoman made wave after wave of successful attacks against the Germanies.
-The past emperors of the Holy Roman Empire always failed to unite the Empire's feudal leaders together to fight back.
-This was largely because the emperors of the Holy Roman Empire were selected by a committee of feudal leaders within the Empire.
-The committee had incentive to pick weak emperors, as weaker candidates left the feudal lords in the committee with vast amounts 
-of power and freedom to do whatever they fancied.
-King Sigismund, however, was an exception.
-He was a man of great vision, and saw the need for reforms in the Empire and the Church.
-He became a force of resistance against the Ottoman invasion.
-Even if partly compelled by geographic location, he did more than his predecessors and his peers in terms of territory defense.
-He founded the Order of the Dragon, a crusading order for select high aristocracy and monarchs.
-A side note, one of the members of the Order of the Dragon was Vlad II, voivode of Wallachia, named Dracul in honor of his membership.
-Vlad II, in fact, was a hostage prince raised at King Sigismund's court, in order to keep his country Wallachia, 
-which sat at the entry point to Europe for the Ottomans, loyal to the Holy Roman Empire.
-You may be familiar with the name "Dracula", meaning "son of Dracul", which the sons of Vlad II were referred to as.
-Anyway. Despite knowing the importance of holding his borders, King Sigismund could only delay the Turkish advance.
-His crusades were also unsuccessful, but at least he attempted them.
-When King Sigismund died in 1437, Sultan Murad II took the opportunity to intensify attacks in the years after.
-Thus, our stage is set for the Crusade of Varna of 1443.
-So, as you can see, geographic location is often an important factor in understanding events of the world.
+Last time, I described Europe as being indifferent towards Ottoman invasions in the Balkans during the 1400s-1500s.
+Holy Roman Emperor Sigismund of Luxembourg was the notable exception,
+attmpting to organize counterattacks against the Ottoman army in his lifetime unlike the rest of Europe.
+Now this brings us to 1437, after King Sigismund's death.
+Sigismund has a successor, Albert of Habsburg, married to Sigismund's daughter Elizabeth of Luxembourg.
+Albert was was never elected Emperor and ruled for only two years before passing away in 1439.
+Albert had a son, Ladislas, who was born after Albert's death and thusly nicknamed Ladislas Posthumus.
+Ladislas Posthumus was heir to Austria, Bohemia, Hungary, but clearly he could not rule as an infant.
+This created a power vacuum after Albert's death, which caused Hungary to fall into civil war, with many nobles 
+wanting to take advantage of the situation to gain power for themselves.
+Meanwhile, Sultan Murad II continued his attacks.
+In the end, where the power truly went was into the hands of John Hunyadi, viceroy of Hungary and voivode of Transylvania.
+He was considered the best warrior in all of southern Hungary, who could repel continuous attacks from the Turks 
+with a mere 50-100 men in his district of Severin even when other districts fell. After, he rapidly climbed the military ranks.
+John Hunyadi became the chief authority on all matters anti-Ottoman, but neither he nor the man that he supported
+for election, King Wladyslaw III of Poland, were named Emperor.
+Instead, the title went to Fredrick III of Habsburg, who spent most of his time trying to convince - or deceive - everyone into thinking
+that he was the legitimate King of Hungary, rather than Hunyadi's son Matthias Corvinus.
+...Anyway. 
+Pope Eugene IV called for the Crusade of Varna in an attempt to stop Ottoman advancement on January 1st, 1443.
+Aside from John Hunyadi, Wladyslaw III of Poland and Philip the Good of Burgundy participated in leading the campaign.
+Hunyadi's troops of 30,000 men broke through the Sultan's power in Bosnia, Hercegovina, Serbia, Bulgaria, Albania, 
+before being forced to retreat from the cold winter frost and lack of supplies.
+Truly, a remarkable and unprecendented success against the Turkish army by the Europeans.
+In fact, it was so remarkable that the Ottoman even agreed to sign a truce treaty with generous terms.
+However, King Wladyslaw III eventually broke the truce at the request of papal legate Cesarini in 1444.
+The Christians wanted to ride the wave of their success, and continue pushing the Ottomans back while morale was high.
+But this sort of optimism led to the final, disastrous battle near Varna in eastern Bulgaria, in November 10, 1444.
+This time, the Christian army was sized at 15,000 men, half of the original number of forces.
+At this point, John Hunyadi makes a special appeal to the voivode of Wallachia, hoping to be assisted.
+Up until now, the voivode of Wallachia, Vlad Dracul, had been ambivalent towards the Crusade due to Ottoman pressure.
+His younger sons, Vlad III and Radu II, were kept in Murad's court as hostages to keep Vlad II from supporting Christian forces.
+Not daring to make rash moves, Vlad Dracul let the bey of Rumelia and his Turkish army enter Wallachia for free access to Transylvania.
+Vlad Dracul did not have much faith in the Christians, but in order to maintain neutrality with the Christians after aiding the Turks,
+he sent his eldest son Mircea II and a small army of 4,000 men to join the Crusade.
+Vlad II knew this choice would be a breach of contract with the Sultan, and would result in the death of his other sons,
+but such was the ruthless world of warfare and politics, where country and power were more important than family.
+Thankfully, the hostage princes were spared, as the Ottoman Sultan saw value in continuing to use them as pawns.
+At the Battle of Varna, John Hunyadi and Wladyslaw III led armies into battle together with Mircea II Dracula.
+...They fought valiantly. But, they were severely underprepared for the far superior size of the Ottoman army that retaliated.
+It was a crushing defeat. King Wladyslaw III made one last desperate attempt to capture the Sultan in the midst of battle.
+He was slain, and the Ottomans displayed his head on a pike.
+Crusaders suffered an enormous loss that they'd never be able to properly recover from.
+Poland would have no king for three years, and the Ottomans had no more major western troops to worry about.
+Ottoman expansion extended to the Peloponnese, and set the stage for Mehmed II, the next Sultan and son of Murad II, 
+to conquer Constantinople in 1453.
+As you can see, military affairs have lasting consequences. Successful campaigns become fuel to greater and greater ambitions.
+So pick your battles, and accumulate your victories, until you become great.
 ->HistoryClassOutro
 
 ===NotPayingAttentionChoice===
@@ -90,7 +127,7 @@ What would Anxious-chan like to do?
 #CenterExp:0
 #Name:Mr. Dascalu
 #Active: Center
-Perhaps you'll keep that lesson in mind as we conclude for today. Class dismissed.
+And that is where we shall conclude for today. Class dismissed.
 
 {Class2Choice.PayAttention: ->PayingAttentionOutro}
 {NotPayingAttentionChoice.Gossip: ->GossipOutro}
@@ -137,8 +174,7 @@ Anxious-chan has mixed feelings about not paying attention to class today.
 #CenterExp:0
 #Active: Center
 #Name:NONE
-That was a deep, hard, thinking session today. But was it truly worth not paying attention in class for?
-Anxious-chan is not sure what to make of it.
+That was a deep, hard, thinking session today. But was it truly worth not paying attention in class for? Who knows!
 ->END
 
 ===DozeOffOutro===
@@ -153,7 +189,8 @@ Anxious-chan contemplates whether or not it was truly the best use of her time.
 ~ ChangeBarValue("ABar", 5)
 Her anxiety increases!
 #CenterExp:4
-Anxious-chan regrets falling asleep! She could've been spending all that time overthinking! Look what you've done!
+Anxious-chan regrets falling asleep! 
+What if she missed out on something important? She could've been overthinking! Look what you've done!
 ->END
 
 ->END
