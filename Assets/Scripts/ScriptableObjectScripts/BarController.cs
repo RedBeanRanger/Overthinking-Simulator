@@ -6,8 +6,11 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Bar Controller SO", menuName = "ScriptableObjects/Bar Controller SO")]
 public class BarController : ScriptableObject
 {
+    public string CurrentCharacterName;
+
     public int MaxBarValue = 100;
     public int MinBarValue = 0;
+
 
     // *****Public fields*****//
     public int SBarValue; //social
@@ -15,26 +18,26 @@ public class BarController : ScriptableObject
     public int PBarValue; //personal
     public int ABarValue; //anxiety
 
+    public CharacterDefaultData AnxiousChanData;
 
 
     //*****Unity Events*****//
     public UnityEvent<string, int> BarValueChangeEvent;
 
-    /*
-    public UnityEvent<int> SChangeEvent;
-    public UnityEvent<int> HChangeEvent;
-    public UnityEvent<int> PChangeEvent;
-    public UnityEvent<int> AChangeEvent;
-    */
 
     // ***** Unity Object Functions *****
     // Executed whenever the object with this script is enabled.
     void OnEnable()
     {
+        //CurrentCharacterName = "AnxiousChan";
+        //SetStartValues(CurrentCharacterName);
+
+        /*
         SBarValue = 16;
         HBarValue = 16;
         PBarValue = 16;
         ABarValue = 20;
+        */
 
         if (BarValueChangeEvent == null)
         {
@@ -44,7 +47,18 @@ public class BarController : ScriptableObject
 
 
     //***** public functions *****
+
+    // reset all bar values to 0
+    public void ResetBarValues()
+    {
+        SBarValue = 0;
+        HBarValue = 0;
+        PBarValue = 0;
+        ABarValue = 0;
+    }
+
     // change bar value, given name of the bar (string) and amount (int)
+    // the ink file uses this method via external functions. The external function is bound in GameHandler loadgame().
     public void ChangeBarValue(string barName, int amount)
     {
         switch (barName)
@@ -67,6 +81,7 @@ public class BarController : ScriptableObject
             case "ABar":
                 ChangeABarValue(amount);
                 setBarValueWithinBounds(barName);
+                Debug.Log("Trigger Amount Changed Event: " + ABarValue + " amount " + amount);
                 BarValueChangeEvent.Invoke(barName, ABarValue);
                 break;
             default:
@@ -75,8 +90,31 @@ public class BarController : ScriptableObject
         }
     }
 
+    public void SetStartValues(string characterName)
+    {
+        switch (characterName)
+        {
+            case "AnxiousChan":
+                /*
+                SBarValue = (int)AnxiousChanData.StartingSocial;
+                ABarValue = (int)AnxiousChanData.StartingAnxiety;
+                HBarValue = (int)AnxiousChanData.StartingHappiness;
+                PBarValue = (int)AnxiousChanData.StartingPersonal;
+                */
+
+                ChangeSBarValue(AnxiousChanData.StartingSocial);
+                ChangeABarValue(AnxiousChanData.StartingAnxiety);
+                ChangeHBarValue(AnxiousChanData.StartingHappiness);
+                ChangePBarValue(AnxiousChanData.StartingPersonal);
+
+                //TODO: Money
+                break;
+        }
+    }
+
 
     // change social bar value
+    // im passing in integer values because on my end ink has problems parsing floats... ToT
     public void ChangeSBarValue(int amount)
     {
         SBarValue += amount;

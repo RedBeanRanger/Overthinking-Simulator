@@ -22,8 +22,13 @@ public class GameConstants
     public static Color NORMAL_COLOR = (Color)(new Color32(255, 255, 255, 255));
     public static Color IDLE_COLOR = (Color)(new Color32(150, 150, 150, 255));
 
+    // Local Position Values for Sprites
+    public static Vector3 LEFT_SPRITE_POS = new Vector3(-9.2f, 0f, 0f);
+    public static Vector3 CENTER_SPRITE_POS = new Vector3(-5f, 0f, 0f);
+    public static Vector3 RIGHT_SPRITE_POS = new Vector3(-.4f, 0f, 0f);
+
     // Character Names
-    public const string ANXIOUS_MC = "AnxiousChan";
+    public const string ANXIOUS_MC = "AnxiousChan"; 
 
     // Side Characters
     public const string HISTORY_TEACHER = "HistoryTeacher";

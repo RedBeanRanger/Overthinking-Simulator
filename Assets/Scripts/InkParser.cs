@@ -75,13 +75,14 @@ public class InkParser
     public void HandleTags(List<string> currentTags)
     {
         updatedTags.Clear();
+        // bools are reset every time HandleTags is run. HandleTags is run prior to each dialogue chunk.
         bool isThereNewActive = false;
         bool isThereNewCharacter = false;
 
         foreach (string tag in currentTags)
         {
             //for debugging
-            Debug.Log(tag);
+            //Debug.Log(tag);
 
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
@@ -94,11 +95,14 @@ public class InkParser
             switch (tagKey)
             {
                 case GameConstants.ACTIVE_CHARACTER:
+                    /*
                     if (!isThereNewActive)
                     {
                         isThereNewActive = true;
                         currentActiveCharacters.Clear();
                     }
+                    */
+                    isNewActiveAdded(isThereNewActive);
                     currentActiveCharacters.Add(tagValue);
                     break;
 
@@ -117,6 +121,7 @@ public class InkParser
                         isThereNewCharacter = true;
                         currentOnScreenCharacters.Clear();
                     }
+                    //isNewCharacterAdded(isThereNewCharacter);
                     LeftCharacter = tagValue;
                     currentOnScreenCharacters.Add(tagKey);
                     break;
@@ -127,6 +132,7 @@ public class InkParser
                         isThereNewCharacter = true;
                         currentOnScreenCharacters.Clear();
                     }
+                    //isNewCharacterAdded(isThereNewCharacter);
                     CenterCharacter = tagValue;
                     currentOnScreenCharacters.Add(tagKey);
                     break;
@@ -137,6 +143,7 @@ public class InkParser
                         isThereNewCharacter = true;
                         currentOnScreenCharacters.Clear();
                     }
+                    //isNewCharacterAdded(isThereNewCharacter);
                     RightCharacter = tagValue;
                     currentOnScreenCharacters.Add(tagKey);
                     break;
@@ -194,6 +201,7 @@ public class InkParser
 
 
     //Helper. Is this the first time we detect a new actives to be added? Then, clear the previous actives before adding new actives.
+    //...so there is a PROBLEM AHAHA I can't change the value of the parameter with the function so this and the one below it are unused.
     private void isNewActiveAdded(bool isThere)
     {
         if (!isThere)
@@ -216,7 +224,7 @@ public class InkParser
     }
 
 
-    // For debugging. In the console, print everything that updated in one of the string lists storing things.
+    // Helper for debugging. In the console, print everything that updated in one of the string lists storing things.
     private void printInDebugWhatUpdated(List<string> whatUpdated)
     {
         foreach (string t in whatUpdated)

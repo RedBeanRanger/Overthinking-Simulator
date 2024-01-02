@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DialogueUI
   - MenuUI
+  - SceneTransitions
   layers:
   - Default
   - TransparentFX

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895c5769314eb86419cbeb0121550094, type: 3}
   m_Name: Bar Controller SO
   m_EditorClassIdentifier: 
+  CurrentCharacterName: AnxiousChan
   MaxBarValue: 100
   MinBarValue: 0
-  SBarValue: 11
-  HBarValue: 21
-  PBarValue: 16
-  ABarValue: 30
+  SBarValue: 30
+  HBarValue: 0
+  PBarValue: 0
+  ABarValue: 98
+  AnxiousChanData: {fileID: 11400000, guid: 31b75e6a837a54f4a92cfc919c827b95, type: 2}
   BarValueChangeEvent:
     m_PersistentCalls:
       m_Calls: []

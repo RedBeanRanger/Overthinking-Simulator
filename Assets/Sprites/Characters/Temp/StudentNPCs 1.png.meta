@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: eed4f28d8f737474d94136fce85c6123
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 260
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: StudentNPCs 1_1
+      rect:
+        serializedVersion: 2
+        x: 6652
+        y: 127
+        width: 1280
+        height: 2778
+      alignment: 9
+      pivot: {x: 0.47818336, y: -0.055388097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a1d83a50b2ba84ba1fa4013e6cc4cd
+      internalID: -1043915903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 252
+        width: 795
+        height: 2431
+      alignment: 9
+      pivot: {x: 0.5439075, y: -0.18348435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec284d8393faac47b055eb3121773f7
+      internalID: -788213956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_3
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 307
+        width: 892
+        height: 2404
+      alignment: 9
+      pivot: {x: 0.43738738, y: -0.16792843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd7b0fab19817140889de81dfd16c1b
+      internalID: 1453720350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_4
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 354
+        width: 980
+        height: 2422
+      alignment: 9
+      pivot: {x: 0.4857524, y: -0.16008219}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a4d32e41fee4b3468606610248f38fa
+      internalID: -76843401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_5
+      rect:
+        serializedVersion: 2
+        x: 3355
+        y: 303
+        width: 962
+        height: 2449
+      alignment: 9
+      pivot: {x: 0.5653137, y: -0.1841622}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8072a57e499b44c44931b1fb21be6380
+      internalID: 2121683050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_6
+      rect:
+        serializedVersion: 2
+        x: 4441
+        y: 136
+        width: 837
+        height: 2649
+      alignment: 9
+      pivot: {x: 0.541704, y: -0.021818914}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec8d50459d2fad45a5829a223dcf71c
+      internalID: 507723313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_7
+      rect:
+        serializedVersion: 2
+        x: 5537
+        y: 220
+        width: 1045
+        height: 2523
+      alignment: 9
+      pivot: {x: 0.4198317, y: -0.0534129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e19c8b81a554e54dbb3f4efae4889de
+      internalID: -1745940062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_8
+      rect:
+        serializedVersion: 2
+        x: 8178
+        y: 150
+        width: 1058
+        height: 2145
+      alignment: 9
+      pivot: {x: 0.47360513, y: -0.066315666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d61cfde31d19e14e93b68e95f5a28f5
+      internalID: -1968797826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_9
+      rect:
+        serializedVersion: 2
+        x: 7429
+        y: 76
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2dafa60ae0d8164abc8b1f179eaff5c
+      internalID: -319162115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StudentNPCs 1_10
+      rect:
+        serializedVersion: 2
+        x: 7466
+        y: 82
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41717eb1d4e702d49906f0e69a7c2606
+      internalID: 1814314005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      StudentNPCs 1_0: -985988528
+      StudentNPCs 1_1: -1043915903
+      StudentNPCs 1_10: 1814314005
+      StudentNPCs 1_2: -788213956
+      StudentNPCs 1_3: 1453720350
+      StudentNPCs 1_4: -76843401
+      StudentNPCs 1_5: 2121683050
+      StudentNPCs 1_6: 507723313
+      StudentNPCs 1_7: -1745940062
+      StudentNPCs 1_8: -1968797826
+      StudentNPCs 1_9: -319162115
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

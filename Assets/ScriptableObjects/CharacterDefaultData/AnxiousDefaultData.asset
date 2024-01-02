@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faccf9fda77daf24bab359e2b82b31f9, type: 3}
+  m_Name: AnxiousDefaultData
+  m_EditorClassIdentifier: 
+  SocialMax: 100
+  HappinessMin: -50
+  HappinessMax: 50
+  PersonalMax: 100
+  AnxietyMax: 100
+  AnxietyThreshold: 75
+  BaselineHappiness: 0
+  StartingSocial: 30
+  StartingHappiness: 10
+  StartingAnxiety: 50
+  StartingPersonal: 0
+  StartingMoney: 20
+  ForgivenessRate: 1

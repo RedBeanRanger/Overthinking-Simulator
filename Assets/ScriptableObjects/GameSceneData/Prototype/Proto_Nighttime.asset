@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Proto_Nighttime
   m_EditorClassIdentifier: 
   Name: Proto_Nighttime
-  BackgroundSprite: {fileID: 21300000, guid: 771cc5923d239534a9cd104d09e5f6a1, type: 3}
+  BackgroundSprite: {fileID: 21300000, guid: 4b7ca8ec794c10646868a66aea880628, type: 3}
   InkTextJSON: {fileID: 4900000, guid: 72dbe9fd55cfdd34591269962a2e7eb1, type: 3}
   NextScene: {fileID: 0}
+  PossibleNextScenes: []

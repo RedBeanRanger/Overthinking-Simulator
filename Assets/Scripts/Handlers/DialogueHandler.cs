@@ -74,7 +74,7 @@ public class DialogueHandler : MonoBehaviour
             choicesTexts.Add(choice.transform.GetChild(1).GetComponent<TextMeshProUGUI>());
             if (choice.transform.GetChild(1).GetComponent<TextMeshProUGUI>() == null)
             {
-                Debug.LogWarning("One of the children is empty.");
+                Debug.LogWarning("One of the choiceTexts is missing.");
             }
             choice.SetActive(false); // once the process is done, deactivate the choice.
             //Debug.Log(choice.activeSelf);
@@ -135,7 +135,6 @@ public class DialogueHandler : MonoBehaviour
         if (CurrentInkStory.canContinue)
         {
             StartCoroutine(TypeDialogue(CurrentInkStory.Continue()));
-            //updateTags(); // updates name, portrait here
         }
         else
         {
