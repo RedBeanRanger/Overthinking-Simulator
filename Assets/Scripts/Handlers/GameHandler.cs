@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
@@ -48,10 +49,17 @@ public class GameHandler : MonoBehaviour
     [SerializeField]
     private VariableController varaibleControllerSO;
 
+    // InkGlobalVars
+    [SerializeField]
+    private InkFile globalVarsFile;
+
+    // ink story
     private Story currentStory;
+
 
     //objects
     private InkParser inkParser;
+    private GameVars gameVars;
 
     // bools
     private bool isInitSuccessful = false;
@@ -104,10 +112,15 @@ public class GameHandler : MonoBehaviour
         ChangeSliderValue("HBar", barControllerSO.HBarValue);
         ChangeSliderValue("PBar", barControllerSO.PBarValue);
         ChangeSliderValue("ABar", barControllerSO.ABarValue);
+        UpdateInkBars("SBar", barControllerSO.SBarValue);
+        UpdateInkBars("HBar", barControllerSO.HBarValue);
+        UpdateInkBars("PBar", barControllerSO.PBarValue);
+        UpdateInkBars("ABar", barControllerSO.ABarValue);
 
         // Events
         // listen for a BarValueChangeEvent from barController ScriptableObject, as soon as that event fires, run ChangeSliderValue
         barControllerSO.BarValueChangeEvent.AddListener(ChangeSliderValue);
+        barControllerSO.BarValueChangeEvent.AddListener(UpdateInkBars);
 
 
         // listen for the LoadGameEvent
@@ -182,16 +195,18 @@ public class GameHandler : MonoBehaviour
 
                 }
 
-                //For testing purposes
+                //*****For testing purposes
+
+                //Will meet jae?
+                bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
+                gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+
                 //The following block of code loops the game back when it's done.
+                //TODO make game ended logic when this happens instead.
                 if (!dialogueHandlerScript.IsShowingDialogue && !dialogueHandlerScript.IsTyping)
                 {
-                    /*
-                    //this doesn't do anything if there are no more game scene data left.
-                    gameSceneControllerSO.UpdateGameSceneData();
-                    */
                     //reload the story
-                    //loadGame();
+                    gameVars.StopListening(currentStory);
                     LoadGameEvent.Invoke();
                     Invoke("loadGame", transitionTweener.TransitionTime); // load the game after the first part of the transition is run.
                 }
@@ -252,6 +267,42 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    public void UpdateInkBars(string barName, int newBarValue)
+    {
+        try
+        {
+            switch (barName)
+            {
+                case "SBar":
+                    gameVars.ModifyInkVar(currentStory, "SBAR_VAL", newBarValue);
+                    break;
+                case "HBar":
+                    gameVars.ModifyInkVar(currentStory, "HBAR_VAL", newBarValue);
+                    break;
+                case "PBar":
+                    gameVars.ModifyInkVar(currentStory, "PBAR_VAL", newBarValue);
+                    break;
+                case "ABar":
+                    gameVars.ModifyInkVar(currentStory, "ABAR_VAL", newBarValue);
+                    break;
+            }
+        } catch
+        {
+            Debug.Log("Failed to modify ink var!");
+        }
+    }
+
+    // Get the value of a variable passed into ink dialogues.
+    public Ink.Runtime.Object GetVariableState(string varName)
+    {
+        Ink.Runtime.Object varVal = null;
+        gameVars.InkVariables.TryGetValue(varName, out varVal);
+        if (varVal == null)
+        {
+            Debug.LogWarning("Ink Variable is null: " + varName);
+        }
+        return varVal;
+    }
 
 
     // *****Private Methods*****
@@ -285,6 +336,7 @@ public class GameHandler : MonoBehaviour
 
         // initialise objects
         inkParser = new InkParser();
+        gameVars = new GameVars(globalVarsFile.filePath);
 
         // Don't destroy on load
         DontDestroyOnLoad(this.gameObject);
@@ -366,6 +418,7 @@ public class GameHandler : MonoBehaviour
 
 
     
+    // bar lerping - currently not in use
 
     private IEnumerator LerpSBar(float newValue)
     {
@@ -430,8 +483,12 @@ public class GameHandler : MonoBehaviour
         Background.GetComponent<SpriteRenderer>().sprite = gameSceneControllerSO.CurrentGameSceneData.BackgroundSprite;
 
         dialogueHandlerScript.CurrentInkStory = currentStory;
+        gameVars.StartListening(currentStory);
 
         //bind external functions
+        // from what i tested so far, it seems that if you bind a function that isn't defined in ink, nothing happens and everything keeps running
+        // (provided you don't actually uses the undefined function anywhere.)
+        // but if you fail to bind a function defined in ink things stop running (fallbacks are for some reason disabled)
         currentStory.BindExternalFunction("ChangeBarValue", (string barName, int amount) => { barControllerSO.ChangeBarValue(barName, amount); });
         try
         {
@@ -446,6 +503,9 @@ public class GameHandler : MonoBehaviour
             currentStory.BindExternalFunction("SpriteMoveL", (int units, float time) => { spriteHandlerScript.SpriteMoveL(units, time); });
             currentStory.BindExternalFunction("SpriteMoveC", (int units, float time) => { spriteHandlerScript.SpriteMoveC(units, time); });
             currentStory.BindExternalFunction("SpriteMoveR", (int units, float time) => { spriteHandlerScript.SpriteMoveR(units, time); });
+
+            //testing purposes
+            //currentStory.BindExternalFunction("MadeUpFunction", () => { spriteHandlerScript.SpriteShakeL(); });
         }
         catch
         {
@@ -461,6 +521,7 @@ public class GameHandler : MonoBehaviour
         //sprite handler updates
         spriteHandlerScript.SetSpriteObjectsActive(inkParser.CurrentOnScreenCharactersGetOnly);
         spriteHandlerScript.SetCharacterColors(inkParser.CurrentActiveCharactersGetOnly);
+        spriteHandlerScript.SpriteResetPositions();
         loadAllSprites();
         loadGameTimes++;
     }

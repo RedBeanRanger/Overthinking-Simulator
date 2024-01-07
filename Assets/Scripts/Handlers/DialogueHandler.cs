@@ -58,7 +58,8 @@ public class DialogueHandler : MonoBehaviour
     private bool areThereChoices; // this value is only modified in display choices
 
     //testing purposes
-    public BarController barControllerSO;
+    //public BarController barControllerSO;
+
 
     // ***** Public Methods *****
 

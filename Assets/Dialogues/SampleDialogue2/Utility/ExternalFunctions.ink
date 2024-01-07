@@ -1,11 +1,7 @@
 // External function definitions
 
-
-
 // bar value management
 EXTERNAL ChangeBarValue(barName, amount)
-
-
 
 // sprite actions
 EXTERNAL SpriteShakeL()

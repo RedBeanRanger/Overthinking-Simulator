@@ -165,6 +165,21 @@ MonoBehaviour:
   transitionTweener: {fileID: 957674813}
   barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
   gameSceneControllerSO: {fileID: 11400000, guid: 4872ace8efda3af459ffb84b62024375, type: 2}
+  varaibleControllerSO: {fileID: 0}
+  globalVarsFile:
+    compileAutomatically: 0
+    inkAsset: {fileID: 102900000, guid: 92a82f255bb3c2a4696709ef9fab3686, type: 3}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 0}
+    unhandledCompileErrors: []
+    errors: []
+    warnings: []
+    todos: []
+    parents: []
+    masterInkAssets: []
+    masterInkAsset: {fileID: 0}
+    includePaths: []
+    includes: []
 --- !u!4 &127768590
 Transform:
   m_ObjectHideFlags: 0
@@ -330,15 +345,21 @@ MonoBehaviour:
   - {fileID: 240992706, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: -208718514, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: 368234819, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
-  HistoryTeacherSprites:
-  - {fileID: 953856385, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
-  - {fileID: 2038504024, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
   BlondeFriendSprites:
   - {fileID: 1335189894, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -693676036, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -196314961, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -272381973, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: 1128090945, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  StudentSprites:
+  - {fileID: 1536375681, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
+  - {fileID: 1512020754, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
+  - {fileID: 619850772, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
+  - {fileID: -65801083, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
+  - {fileID: 1820386909, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
+  HistoryTeacherSprites:
+  - {fileID: 953856385, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
+  - {fileID: 2038504024, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
   NPCSprites:
   - {fileID: -988781329524767699, guid: bedbd62f33ae15340b217819632af44d, type: 3}
   - {fileID: 1079402678001840046, guid: bedbd62f33ae15340b217819632af44d, type: 3}
@@ -538,7 +559,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1043915903, guid: eed4f28d8f737474d94136fce85c6123, type: 3}
+  m_Sprite: {fileID: -65801083, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -702,7 +723,6 @@ MonoBehaviour:
   - {fileID: 1781476827}
   - {fileID: 303012372}
   choicesTexts: []
-  barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
 --- !u!4 &959017737
 Transform:
   m_ObjectHideFlags: 0
@@ -787,7 +807,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7060538874661814626, guid: 511ab73db2b715f40aec925454c5f686, type: 3}
+  m_Sprite: {fileID: 1434377245, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1287,7 +1307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -988781329524767699, guid: bedbd62f33ae15340b217819632af44d, type: 3}
+  m_Sprite: {fileID: 1512020754, guid: 3f276ed0c0ec4ab4daeade086364f660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

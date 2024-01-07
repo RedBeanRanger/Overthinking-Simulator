@@ -50,6 +50,34 @@ public class GameSceneController : ScriptableObject
         return false;
     }
 
+
+    // test method
+    public void UpdateGameSceneNextScene(bool willMeetJae)
+    {
+        if (!willMeetJae)
+        {
+            GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[0];
+        }
+        if (willMeetJae)
+        {
+            GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[1];
+        }
+    }
+
+    public void UpdateGameSceneNextScene(int node)
+    {
+        // update next game scene node to int node
+    }
+
+    // decider function
+    //return 0,1,2,3
+    /*
+    // TUMBLY ADDITION
+    public void decider(string dependson, index, lowerbound, upperbound, booleanvallist)
+
+    */
+
+
     //*****private methods*****//
     // get the next scene index
     private int getNextGameSceneIndex()

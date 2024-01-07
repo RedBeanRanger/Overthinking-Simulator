@@ -49,7 +49,7 @@ Look at that.
 
 #Active: Right
 #Name:Melody
-Hey Anxious-chan, what are you talking about over there by yourself?
+Hey Anxious-chan~ why are you talking to yourself?
 
 #Active: Left
 #Name:Anxious-chan
@@ -59,11 +59,13 @@ Here goes.
 
 ~SpriteBounceR()
 #RightExp:4
-Hey hey! Did you hear me? Are you even paying attention?
+#Active: Right
+#Name:Melody
+Hey hey! Did you hear me?
 ~SpriteMoveL(-10, 0.5)
 ~SpriteMoveR(-3, 0.5)
 Heyyy~ Where are you goin'?
-~SpriteMoveL(-10, 0.5)
-~SpriteMoveR(-10, 0.3)
+~SpriteMoveL(-200, 0.5)
+~SpriteMoveR(-50, 0.3)
 Wait for me!
 ->END

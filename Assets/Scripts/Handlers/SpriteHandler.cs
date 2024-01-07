@@ -10,11 +10,22 @@ public class SpriteHandler : MonoBehaviour
     public GameObject CenterSprite;
     public GameObject RightSprite;
 
+    // Anxious Chan's Route
+
+    //MC
     public Sprite[] AnxiousSprites;
 
-    public Sprite[] HistoryTeacherSprites;
+    //Major Students (with Full Storylines)
     public Sprite[] BlondeFriendSprites;
 
+    //Minor Students
+    public Sprite[] StudentSprites;
+
+    //Teachers
+    public Sprite[] HistoryTeacherSprites;
+
+
+    //NPCs
     public Sprite[] NPCSprites;
     public Sprite[] StudentNPCSprites;
 
@@ -222,8 +233,9 @@ public class SpriteHandler : MonoBehaviour
 
 
 
-    // sprite actions
+    // public sprite actions
 
+    // sprite shake
     public void SpriteShakeR()
     {
         /*
@@ -261,6 +273,7 @@ public class SpriteHandler : MonoBehaviour
         }
     }
 
+    // sprite bounce
     public void SpriteBounceL()
     {
         stopLeftCoroutine();
@@ -288,6 +301,7 @@ public class SpriteHandler : MonoBehaviour
         }
     }
 
+    // sprite move
     public void SpriteMoveL(int units, float time)
     {
         stopLeftCoroutine();
@@ -315,10 +329,20 @@ public class SpriteHandler : MonoBehaviour
         }
     }
 
+    // sprite reset positions
+    // public, non-ienumerator version of resetAllPositions()
+    public void SpriteResetPositions()
+    {
+        RightSprite.transform.localPosition = GameConstants.RIGHT_SPRITE_POS;
+        CenterSprite.transform.localPosition = GameConstants.CENTER_SPRITE_POS;
+        LeftSprite.transform.localPosition = GameConstants.LEFT_SPRITE_POS;
+    }
+
+
+
     //*****Private Methods*****
 
     // Sprite configuration helpers
-
     private void setCorrespondingCharacter(SpriteRenderer sR, string charName)
     {
         setCurrentSpritesRef(charName);
@@ -341,20 +365,30 @@ public class SpriteHandler : MonoBehaviour
     {
         switch (charName)
         {
-            //MCs
+            //MC
             case GameConstants.ANXIOUS_MC:
                 currentSpritesRef = AnxiousSprites;
                 break;
 
-            // Side Characters
+
+            // Major Students
 
             case GameConstants.BLONDE_FRIEND:
                 currentSpritesRef = BlondeFriendSprites;
                 break;
 
+
+            // Minor Students
+            case GameConstants.CLUB_STUDENTS:
+                currentSpritesRef = StudentSprites;
+                break;
+
+
+            //Teachers
             case GameConstants.HISTORY_TEACHER:
                 currentSpritesRef = HistoryTeacherSprites;
                 break;
+
 
             //NPCs
             case GameConstants.BLOB_NPC:
@@ -364,6 +398,7 @@ public class SpriteHandler : MonoBehaviour
             case GameConstants.STUDENT_NPC:
                 currentSpritesRef = StudentNPCSprites;
                 break;
+
 
             //default
             default:
@@ -394,9 +429,9 @@ public class SpriteHandler : MonoBehaviour
     // resetting sprite positions
     private IEnumerator resetAllPositions()
     {
-        RightSprite.transform.position = GameConstants.RIGHT_SPRITE_POS;
-        CenterSprite.transform.position = GameConstants.CENTER_SPRITE_POS;
-        LeftSprite.transform.position = GameConstants.LEFT_SPRITE_POS;
+        RightSprite.transform.localPosition = GameConstants.RIGHT_SPRITE_POS;
+        CenterSprite.transform.localPosition = GameConstants.CENTER_SPRITE_POS;
+        LeftSprite.transform.localPosition = GameConstants.LEFT_SPRITE_POS;
         yield return null;
     }
 
@@ -420,7 +455,6 @@ public class SpriteHandler : MonoBehaviour
 
 
     // stopping coroutines
-
     private void stopLeftCoroutine()
     {
         if (leftCoroutineRunning && leftActive)
@@ -483,6 +517,11 @@ public class SpriteHandler : MonoBehaviour
             case "right":
                 rightCoroutineRunning = true;
                 break;
+            case "all":
+                leftCoroutineRunning = true;
+                centerCoroutineRunning = true;
+                rightCoroutineRunning = true;
+                break;
             default:
                 leftCoroutineRunning = true;
                 centerCoroutineRunning = true;
@@ -503,6 +542,11 @@ public class SpriteHandler : MonoBehaviour
                 centerCoroutineRunning = false;
                 break;
             case "right":
+                rightCoroutineRunning = false;
+                break;
+            case "all":
+                leftCoroutineRunning = false;
+                centerCoroutineRunning = false;
                 rightCoroutineRunning = false;
                 break;
             default:
@@ -595,7 +639,7 @@ public class SpriteHandler : MonoBehaviour
     {
         Vector3 temppos = sprite.transform.position;
         Vector3 bouncepos = new Vector3(temppos.x, temppos.y + .2f, temppos.z);
-        sprite.LeanMove(bouncepos, bounceTime).setEase(LeanTweenType.easeOutBounce);
+        sprite.LeanMove(bouncepos, bounceTime).setEase(LeanTweenType.easeInBounce);
         yield return new WaitForSeconds(bounceTime);
     }
 
