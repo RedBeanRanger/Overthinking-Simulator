@@ -16,7 +16,7 @@ public struct Option
 }
 
 // decide next game scene given current scene
-// should be able to input a list of criteria for the bars Sbar, Hbar, Pbar, Abar
+// should be able to input a list of criteria for the bars SBar, HBar, PBar, ABar
 // either larger than or smaller than for each value
 // and what corresponds to an index in the next game scene
 
@@ -104,8 +104,9 @@ public static class Globals
     }
 }
 
-
-
+/// <summary>
+/// CLASS GAMESCENECONTROLLER
+/// </summary>
 
 public class GameSceneController : ScriptableObject
 {
@@ -113,6 +114,13 @@ public class GameSceneController : ScriptableObject
     public GameSceneData[] GameScenes;
     public GameSceneData CurrentGameSceneData;
     public int CurrentGameSceneIndex;
+
+    public int SBar;
+    public int HBar;
+    public int PBar;
+    public int ABar;
+
+    //*****Unity Events*****//
 
     //*****private variables*****//
     private string[] gameSceneNames;
@@ -185,25 +193,25 @@ public class GameSceneController : ScriptableObject
         switch (c.bar)
         {
             case "S":
-                if (CurrentGameSceneData.SBar >= c.lowerbound && CurrentGameSceneData.Sbar <= c.upperbound)
+                if (SBar >= c.lowerbound && SBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "H":
-                if (CurrentGameSceneData.Hbar >= c.lowerbound && CurrentGameSceneData.Hbar <= c.upperbound)
+                if (HBar >= c.lowerbound && HBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "P":
-                if (CurrentGameSceneData.Pbar >= c.lowerbound && CurrentGameSceneData.Pbar <= c.upperbound)
+                if (PBar >= c.lowerbound && PBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "A":
-                if (CurrentGameSceneData.Abar >= c.lowerbound && CurrentGameSceneData.Abar <= c.upperbound)
+                if (ABar >= c.lowerbound && ABar <= c.upperbound)
                 {
                     return true;
                 }

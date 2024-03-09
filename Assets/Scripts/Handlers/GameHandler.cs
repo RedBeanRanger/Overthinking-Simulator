@@ -120,6 +120,8 @@ public class GameHandler : MonoBehaviour
         barControllerSO.BarValueChangeEvent.AddListener(ChangeSliderValue);
         barControllerSO.BarValueChangeEvent.AddListener(UpdateInkBars);
 
+        //whenever this updates, I want to feed in new values to GameSceneControllerSO
+
 
         // listen for the LoadGameEvent
         if (LoadGameEvent == null)
@@ -246,20 +248,24 @@ public class GameHandler : MonoBehaviour
                 //SBar.value = Mathf.Lerp(oldValue, (float)newBarValue, Time.deltaTime * 3);
                 //SBar.value = (float)newBarValue;
                 //Debug.Log("SBar Value Changed.");
+                gameSceneControllerSO.SBar = newBarValue;
                 break;
             case "HBar":
                 StartCoroutine(LerpHBar(newBarValue));
                 //HBar.value = (float)newBarValue;
                 //Debug.Log("HBar Value Changed.");
+                gameSceneControllerSO.HBar = newBarValue;
                 break;
             case "PBar":
                 StartCoroutine(LerpPBar(newBarValue));
                 //PBar.value = (float)newBarValue;
                 //Debug.Log("PBar Value Changed.");
+                gameSceneControllerSO.PBar = newBarValue;
                 break;
             case "ABar":
                 StartCoroutine(LerpABar(newBarValue));
                 //ABar.value = (float)newBarValue;
+                gameSceneControllerSO.ABar = newBarValue;
                 break;
 
         }
