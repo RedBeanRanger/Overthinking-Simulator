@@ -393,28 +393,49 @@ public struct Option
         Option o = new Option();
         // remove spaces from string
         s = s.Replace(" ", string.Empty);
+        // check if s is empty
+
+        if (string.IsNullOrEmpty(s)){
+            o.nextSceneIndex = 0;
+            return o;}
+
         string[] parts = s.Split(';');
+        
+
         string[] bounds = parts[0].Split(',');
-        foreach (string b in bounds)
-        {
-            string[] bound = b.Split(':');
-            Criteria c = new Criteria();
-            c.bar = bound[0];
-            string[] range = bound[1].Split('-');
-            c.lowerbound = int.Parse(range[0]);
-            c.upperbound = int.Parse(range[1]);
-            o.bounds.Add(c);
-        }
+        if (bounds[0] != ""){
+            foreach (string b in bounds)
+            {
+                if (!b){
+                    continue;}
+                if (!b.Contains(':')){
+                    continue;}
+                string[] bound = b.Split(':');
+                Criteria c = new Criteria();
+                c.bar = bound[0];
+                string[] range = bound[1].Split('-');
+                c.lowerbound = int.Parse(range[0]);
+                c.upperbound = int.Parse(range[1]);
+                o.bounds.Add(c);
+            }}
         string[] variables = parts[1].Split(',');
-        foreach (string v in variables)
-        {
-            string[] variable = v.Split(':');
-            VarCondition vc = new VarCondition();
-            vc.variable = variable[0];
-            vc.type = variable[1];
-            vc.value = variable[2];
-            o.variables.Add(vc);
-        }
+        if (variables[0] != ""){
+            foreach (string v in variables)
+            {
+                if (!v){
+                    continue;}
+                if (!v.Contains(':'))
+                {
+                    continue;
+                }
+                string[] variable = v.Split(':');
+                VarCondition vc = new VarCondition();
+                vc.variable = variable[0];
+                vc.type = variable[1];
+                vc.value = variable[2];
+                o.variables.Add(vc);
+            }
+    }
         o.nextSceneIndex = int.Parse(parts[2]);
         return o;
     }
