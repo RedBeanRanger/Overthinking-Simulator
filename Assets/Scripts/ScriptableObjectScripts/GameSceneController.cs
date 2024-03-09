@@ -34,12 +34,12 @@ public struct VarCondition
 {
     public string variable;
 
-    public string type = "bool"; // should be bool, int, float, or string
+    public string type; // should be bool, int, float, or string
 
     // define condition
-    public bool equals = true; // if true then it returns true if the value of the variable equal to value
+    public bool equals; // if true then it returns true if the value of the variable equal to value
     // TODO change to operator to allow for more than just equals like greater than, less than, etc.
-    public string value = "true";
+    public string value; //e.g. "true"
 
     // variable called 'variable' of type 'type' should be 'equals' to 'value'
     // variable called 'thiefLevel' of type 'int' equals 5 should be 'true' then return true else false
@@ -124,12 +124,9 @@ public class GameSceneController : ScriptableObject
     public GameSceneData CurrentGameSceneData;
     public int CurrentGameSceneIndex;
 
-<<<<<<< HEAD
-
     // game scene dictionary
     // name to game scene data
     public Dictionary<string, GameSceneData> gameSceneDict = new Dictionary<string, GameSceneData>();
-=======
     public int SBar;
     public int HBar;
     public int PBar;
@@ -137,7 +134,6 @@ public class GameSceneController : ScriptableObject
 
     //*****Unity Events*****//
 
->>>>>>> cf2b589dc8cb136df2c7463c456a9f91744ec9a0
     //*****private variables*****//
     private string[] gameSceneNames;
 
@@ -377,7 +373,7 @@ public class GameSceneController : ScriptableObject
     // if the option is met, set the variable to the value
     public void decideVariable(List<Option> options, List<string> values, string variable, string type)
     {
-        foreach (int i; i < options.Count; i++)
+        for (int i = 0; i < options.Count; i++)
         {
             if (VerifyOption(options[i]))
             {
@@ -404,7 +400,7 @@ public class GameSceneController : ScriptableObject
                         break;
                     case "float":
                         // catch if the value is not a float
-                        if (!float.TryParse(values[i], out float n))
+                        if (!float.TryParse(values[i], out float m))
                         {
                             Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
                             break;
@@ -442,7 +438,7 @@ public class GameSceneController : ScriptableObject
         {
             string[] bound = b.Split(':');
             Criteria c = new Criteria();
-            c.bar = bound[0]
+            c.bar = bound[0];
             string[] range = bound[1].Split('-');
             c.lowerbound = int.Parse(range[0]);
             c.upperbound = int.Parse(range[1]);

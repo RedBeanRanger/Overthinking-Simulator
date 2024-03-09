@@ -206,7 +206,7 @@ public class GameHandler : MonoBehaviour
                 bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
 
                 //string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = ""
-                Globals.AddVariable("bool", "willMeetJae", willMeetJae);
+                Globals.SetVariable("bool", "willMeetJae", willMeetJae);
 
 
                 //gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
