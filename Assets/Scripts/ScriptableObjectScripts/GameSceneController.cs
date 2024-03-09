@@ -124,20 +124,16 @@ public class GameSceneController : ScriptableObject
     public GameSceneData CurrentGameSceneData;
     public int CurrentGameSceneIndex;
 
-<<<<<<< HEAD
 
     // game scene dictionary
     // name to game scene data
     public Dictionary<string, GameSceneData> gameSceneDict = new Dictionary<string, GameSceneData>();
-=======
+
     public int SBar;
     public int HBar;
     public int PBar;
     public int ABar;
 
-    //*****Unity Events*****//
-
->>>>>>> cf2b589dc8cb136df2c7463c456a9f91744ec9a0
     //*****private variables*****//
     private string[] gameSceneNames;
 
