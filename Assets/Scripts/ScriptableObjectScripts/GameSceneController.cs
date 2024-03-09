@@ -159,9 +159,12 @@ public struct Option
 }
         **/
         ButtonOutcome buttonOutcome = GameScenes[0].ButtonOutcomes[Globals.intVariables["buttonIndex"]];
+        Debug.Log("Globals.intVar " + Globals.intVariables["buttonIndex"]);
         if(buttonOutcome != null){
-            Option option = ParseOption(";;0");
-            buttonOutcome.options.Add(option);
+            Option option = ParseOption("");
+            List<Option> options = new List<Option>();
+            options.Add(option);
+            buttonOutcome.options = options;
         }
         Debug.Log("Globals, buttonindex: " + Globals.intVariables["buttonIndex"]);
         decider(buttonOutcome.options);
@@ -437,6 +440,7 @@ public struct Option
             }
     }
         o.nextSceneIndex = int.Parse(parts[2]);
+        Debug.Log ("Option o exists: " + o != null);
         return o;
     }
     

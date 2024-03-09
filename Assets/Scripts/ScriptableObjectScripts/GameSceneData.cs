@@ -48,13 +48,11 @@ public class ButtonOutcome : ScriptableObject
     public List<Option> options;
     public GameSceneData [] PossibleNextScenes;
 
-/*
     public ButtonOutcome(int buttonIndex, List<Option> options, GameSceneData [] PossibleNextScenes)
     {
         this.buttonIndex = buttonIndex;
         this.options = options;
         this.PossibleNextScenes = PossibleNextScenes;
     }
-    */
 
 }

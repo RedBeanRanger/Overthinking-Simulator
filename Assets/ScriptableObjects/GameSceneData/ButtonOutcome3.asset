@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ButtonOutcome3
   m_EditorClassIdentifier: Assembly-CSharp::ButtonOutcome
-  buttonIndex: 0
-  PossibleNextScenes: []
+  buttonIndex: 2
+  PossibleNextScenes:
+  - {fileID: 11400000, guid: a7d7d0e37f2cc1d46b1cd2640b769c15, type: 2}

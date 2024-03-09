@@ -19,3 +19,8 @@ MonoBehaviour:
   PossibleNextScenes:
   - {fileID: 11400000, guid: b222a03c5b35af3439519af4adf2c2aa, type: 2}
   - {fileID: 11400000, guid: a7d7d0e37f2cc1d46b1cd2640b769c15, type: 2}
+  ButtonOutcomes:
+  - {fileID: 11400000, guid: 2410e72bfd9fcea479519d7d0fdf5967, type: 2}
+  - {fileID: 11400000, guid: e6e25142d91de894380eed4ae9dc26a4, type: 2}
+  - {fileID: 11400000, guid: 856f7484783c41a44b56c76f68e81beb, type: 2}
+  DefaultNextScene: {fileID: 0}
