@@ -4,6 +4,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+// define struct for Option
+public struct Option
+{
+    public List<Criteria> bounds;
+
+    // list of variables to check if true
+    public List<VarCondition> variables;
+    public int nextSceneIndex; // default to 0
+
+}
+
+// decide next game scene given current scene
+// should be able to input a list of criteria for the bars Sbar, Hbar, Pbar, Abar
+// either larger than or smaller than for each value
+// and what corresponds to an index in the next game scene
+
+// define struct for Criteria
+public struct Criteria
+{
+    public string bar; // should be S, H, P, or A,
+    public int lowerbound; // default 0
+    public int upperbound; // default 100
+}
+
+// define struct for VarCondition
+public struct VarCondition
+{
+    public string variable;
+
+    public string type; // should be bool, int, float, or string
+
+    // define condition
+    public bool equals; // bool true
+    
+    public string value; //"true"
+}
+
 [CreateAssetMenu(fileName = "Game Scene Controller SO", menuName = "ScriptableObjects/Game Scene Controller SO")]
 
 public static class Globals
@@ -141,26 +178,14 @@ public class GameSceneController : ScriptableObject
         // update next game scene node to int node
     }
 
-    // decide next game scene given current scene
-    // should be able to input a list of criteria for the bars Sbar, Hbar, Pbar, Abar
-    // either larger than or smaller than for each value
-    // and what corresponds to an index in the next game scene
-
-    // define struct for Criteria
-    struct Criteria
-    {
-        public string bar; // should be S, H, P, or A,
-        public int lowerbound = 0;
-        public int upperbound = 100;
-    }
 
     // determine if the current game scene data meets the criteria
     public bool VerifyCriteria(Criteria c)
     {
-        switch c.bar
+        switch (c.bar)
         {
             case "S":
-                if (CurrentGameSceneData.Sbar >= c.lowerbound && CurrentGameSceneData.Sbar <= c.upperbound)
+                if (CurrentGameSceneData.SBar >= c.lowerbound && CurrentGameSceneData.Sbar <= c.upperbound)
                 {
                     return true;
                 }
@@ -190,22 +215,10 @@ public class GameSceneController : ScriptableObject
         return false;
     }
 
-    // define struct for VarCondition
-    struct VarCondition
-    {
-        public string variable;
-
-        public string type = "bool"; // should be bool, int, float, or string
-
-        // define condition
-        public bool equals = true;
-
-        public string value = "true";
-    }
 
     public bool VerifyCondition(VarCondition vc)
     {
-        switch vc.type
+        switch (vc.type)
         {
             case "bool":
                 if (Globals.boolVariables.ContainsKey(vc.variable))
@@ -219,7 +232,7 @@ public class GameSceneController : ScriptableObject
             case "int":
                 if (Globals.intVariables.ContainsKey(vc.variable))
                 {
-                    if vc.equals
+                    if (vc.equals)
                     {
                         if (Globals.intVariables[vc.variable] == int.Parse(vc.value))
                         {
@@ -235,10 +248,11 @@ public class GameSceneController : ScriptableObject
                     }
                 }
                 break;
+
             case "float":
                 if (Globals.floatVariables.ContainsKey(vc.variable))
                 {
-                    if vc.equals
+                    if (vc.equals)
                     {
                         if (Globals.floatVariables[vc.variable] == float.Parse(vc.value))
                         {
@@ -257,7 +271,7 @@ public class GameSceneController : ScriptableObject
             case "string":
                 if (Globals.stringVariables.ContainsKey(vc.variable))
                 {
-                    if vc.equals
+                    if (vc.equals)
                     {
                         if (Globals.stringVariables[vc.variable] == vc.value)
                         {
@@ -282,17 +296,6 @@ public class GameSceneController : ScriptableObject
                     
     }
 
-
-    // define struct for Option
-    struct Option
-    {
-        public List<Criteria> bounds;
-
-        // list of variables to check if true
-        public List<VarCondition> variables;
-        public int nextSceneIndex = 0;
-
-    }
 
     // verify option
     public bool VerifyOption(Option o)

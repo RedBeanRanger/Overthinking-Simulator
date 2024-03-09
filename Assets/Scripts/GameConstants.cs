@@ -46,4 +46,42 @@ public class GameConstants
     // None
     public const string NONE = "NONE";
 
+    // structs
+    // define struct for Option
+    public struct Option
+    {
+        public List<Criteria> bounds;
+
+        // list of variables to check if true
+        public List<VarCondition> variables;
+        public int nextSceneIndex; // default to 0
+
+    }
+
+    // decide next game scene given current scene
+    // should be able to input a list of criteria for the bars Sbar, Hbar, Pbar, Abar
+    // either larger than or smaller than for each value
+    // and what corresponds to an index in the next game scene
+
+    // define struct for Criteria
+    public struct Criteria
+    {
+        public string bar; // should be S, H, P, or A,
+        public int lowerbound; // default 0
+        public int upperbound; // default 100
+    }
+
+    // define struct for VarCondition
+    public struct VarCondition
+    {
+        public string variable;
+
+        public string type; // should be bool, int, float, or string
+
+        // define condition
+        public bool equals; // bool true
+
+        public string value; //"true"
+    }
+
 }
