@@ -165,6 +165,7 @@ public class GameSceneController : ScriptableObject
 
     public void UpdateGameSceneNextScene(bool willMeetJae)
     {
+        // this is only needed if it runs every update :D
         if (!willMeetJae)
         {
             if (GameScenes[0].Name == "Scene1")
@@ -172,6 +173,8 @@ public class GameSceneController : ScriptableObject
                 GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[0];
             }
         }
+
+        // actual checker
         if (willMeetJae)
         {
             if (GameScenes[0].Name == "Scene0")
@@ -181,9 +184,11 @@ public class GameSceneController : ScriptableObject
         }
     }
 
-    public void UpdateGameSceneNextScene(int node)
+    public void UpdateGameSceneNextScene()
     {
         // update next game scene node to int node
+        // CurrentGameSceneIndex
+
     }
 
 

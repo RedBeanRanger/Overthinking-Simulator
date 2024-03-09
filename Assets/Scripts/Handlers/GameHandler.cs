@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour
 
     // UnityEvents
     public UnityEvent LoadGameEvent;
+    public UnityEvent ButtonPressEvent;
 
     // Game UI
     // for testing purposes
@@ -80,6 +81,8 @@ public class GameHandler : MonoBehaviour
     {
         //Debug.Log("Game Handler is Awake");
         init();
+
+        //
 
     }
 
@@ -198,8 +201,18 @@ public class GameHandler : MonoBehaviour
                 //*****For testing purposes
 
                 //Will meet jae?
+                //write a event for button press in ink
+
                 bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
-                gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+
+                //string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = ""
+                Globals.AddVariable("bool", "willMeetJae", willMeetJae);
+
+
+                //gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+
+
+
 
                 //The following block of code loops the game back when it's done.
                 //TODO make game ended logic when this happens instead.
@@ -319,6 +332,7 @@ public class GameHandler : MonoBehaviour
         SpriteHandlerObject = GameObject.Find("SpriteHandler");
         initSingletonHandler("Dialogue", DialogueHandlerObject);
         initSingletonHandler("Sprite", SpriteHandlerObject);
+
 
         // Create new Manager object
         ConfigManager = new ConfigManager();
