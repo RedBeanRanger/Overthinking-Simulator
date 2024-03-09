@@ -403,11 +403,11 @@ public struct Option
         
 
         string[] bounds = parts[0].Split(',');
-        if (bounds[0] != ""){
+        if (!string.IsNullOrEmpty(bounds[0])){
             foreach (string b in bounds)
             {
-                if (!b){
-                    continue;}
+                // if (!b){
+                //     continue;}
                 if (!b.Contains(':')){
                     continue;}
                 string[] bound = b.Split(':');
@@ -419,11 +419,11 @@ public struct Option
                 o.bounds.Add(c);
             }}
         string[] variables = parts[1].Split(',');
-        if (variables[0] != ""){
+        if (!string.IsNullOrEmpty( variables[0])){
             foreach (string v in variables)
             {
-                if (!v){
-                    continue;}
+                // if (!v){
+                //     continue;}
                 if (!v.Contains(':'))
                 {
                     continue;
