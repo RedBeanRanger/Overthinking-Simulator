@@ -100,8 +100,13 @@ public class GameSceneController : ScriptableObject
     {
         if (IsThereMoreGameScenes())
         {
+            Debug.Log("There are still game scenes");
             CurrentGameSceneIndex = getNextGameSceneIndex();
             CurrentGameSceneData = getGameSceneData();
+        }
+        else
+        {
+            Debug.Log("There are no more game scenes");
         }
     }
 
@@ -109,6 +114,7 @@ public class GameSceneController : ScriptableObject
     {
         if (CurrentGameSceneData.NextScene != null && GameScenes.Length > 1)
         {
+
             return true;
         }
         return false;
@@ -159,15 +165,16 @@ public struct Option
 }
         **/
         ButtonOutcome buttonOutcome = GameScenes[0].ButtonOutcomes[Globals.intVariables["buttonIndex"]];
+        buttonOutcome.options = new List<Option>();
+
         Debug.Log("Globals.intVar " + Globals.intVariables["buttonIndex"]);
         if(buttonOutcome != null){
-            Option option = ParseOption("");
-            List<Option> options = new List<Option>();
-            options.Add(option);
-            buttonOutcome.options = options;
+
+            buttonOutcome.options.Add(ParseOption(""));
         }
         Debug.Log("Globals, buttonindex: " + Globals.intVariables["buttonIndex"]);
-        decider(buttonOutcome.options);
+        int nextSceneIndexInButton = decider(buttonOutcome.options);
+        GameScenes[0].NextScene = buttonOutcome.PossibleNextScenes[nextSceneIndexInButton];
 
     }
     
@@ -317,7 +324,7 @@ public struct Option
     
     // TUMBLY ADDITION
     // parameter is list of criteria 
-    public void decider(List<Option> options)
+    public int decider(List<Option> options)
     {
         foreach (Option o in options)
         {
@@ -325,15 +332,22 @@ public struct Option
             {
                 CurrentGameSceneIndex = o.nextSceneIndex;
                 CurrentGameSceneData = getGameSceneDataByIndex(CurrentGameSceneIndex);
-                return;
+                return 0; // TODO change to return the index of the option
             }
         }
         // else, default to first option
-        CurrentGameSceneIndex = 0;
-        CurrentGameSceneData = getGameSceneDataByIndex(CurrentGameSceneIndex);
+
+        // CurrentGameSceneIndex = options[0].nextSceneIndex;
+        // CurrentGameSceneData = getGameSceneDataByIndex(CurrentGameSceneIndex);
+
+        int nextSceneIndexInButton = options[0].nextSceneIndex;
+        Debug.Log("NextSceneIndexInButton: " + nextSceneIndexInButton);
+        return nextSceneIndexInButton;
+    
+
     }
 
-    // reuse the decider function for setting variables as a value
+    // reuse the decide function for setting variables as a value
     // if the option is met, set the variable to the value
     public void decideVariable(List<Option> options, List<string> values, string variable, string type)
     {
@@ -394,12 +408,14 @@ public struct Option
     public Option ParseOption(string s)
     {
         Option o = new Option();
+        o.bounds = new List<Criteria>();
+        o.variables = new List<VarCondition>();
+        o.nextSceneIndex = 0;
         // remove spaces from string
         s = s.Replace(" ", string.Empty);
         // check if s is empty
 
         if (string.IsNullOrEmpty(s)){
-            o.nextSceneIndex = 0;
             return o;}
 
         string[] parts = s.Split(';');
@@ -455,12 +471,14 @@ public struct Option
     private int getNextGameSceneIndex()
     {
         string nextGameSceneName = CurrentGameSceneData.NextScene.Name;
+        Debug.Log("Next Game Scene Name: " + nextGameSceneName);
         int nextGameSceneInd = Array.IndexOf(gameSceneNames, nextGameSceneName); //get the next scene's index
         if (nextGameSceneInd == -1)
         {
             Debug.LogWarning("Warning: No valid nextGameSceneInd. Check if the next game scene name was valid. Next Game Scene will be set to GameScenes[0].");
             return 0;
         }
+        Debug.Log("Next Game Scene Index: " + nextGameSceneInd);
         return nextGameSceneInd;
     }
 
