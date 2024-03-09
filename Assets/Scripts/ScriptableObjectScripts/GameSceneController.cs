@@ -405,6 +405,10 @@ public class GameSceneController : ScriptableObject
                             Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
                             break;
                         }
+                        {
+                            Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
+                            break;
+                        }
                         Globals.SetVariable("float", variable, floatValue: float.Parse(values[i]));
                         break;
                     case "string":
