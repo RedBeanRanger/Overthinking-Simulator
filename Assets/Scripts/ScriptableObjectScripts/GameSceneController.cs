@@ -29,16 +29,21 @@ public struct Criteria
 }
 
 // define struct for VarCondition
+
 public struct VarCondition
 {
     public string variable;
 
-    public string type; // should be bool, int, float, or string
+    public string type = "bool"; // should be bool, int, float, or string
 
     // define condition
-    public bool equals; // bool true
-    
-    public string value; //"true"
+    public bool equals = true; // if true then it returns true if the value of the variable equal to value
+    // TODO change to operator to allow for more than just equals like greater than, less than, etc.
+    public string value = "true";
+
+    // variable called 'variable' of type 'type' should be 'equals' to 'value'
+    // variable called 'thiefLevel' of type 'int' equals 5 should be 'true' then return true else false
+
 }
 
 [CreateAssetMenu(fileName = "Game Scene Controller SO", menuName = "ScriptableObjects/Game Scene Controller SO")]
