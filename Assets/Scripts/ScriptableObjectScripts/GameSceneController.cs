@@ -53,7 +53,7 @@ public static class Globals
 
 
     // add a variable to the dictionary
-    public static void AddVariable(string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = "")
+    public static void SetVariable(string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = "")
     {
         switch (dict)
         {
@@ -111,11 +111,21 @@ public class GameSceneController : ScriptableObject
 {
     //*****public variables*****//
     public GameSceneData[] GameScenes;
+
+    // these game scenes will need to be defined 
+    // in the inspector(?)
+
     public GameSceneData CurrentGameSceneData;
     public int CurrentGameSceneIndex;
 
+
+    // game scene dictionary
+    // name to game scene data
+    public Dictionary<string, GameSceneData> gameSceneDict = new Dictionary<string, GameSceneData>();
     //*****private variables*****//
     private string[] gameSceneNames;
+
+    
 
     //*****public methods*****//
     void OnEnable()
@@ -127,6 +137,7 @@ public class GameSceneController : ScriptableObject
             for (int i = 0; i < GameScenes.Length; i++)
             {
                 gameSceneNames[i] = GameScenes[i].Name;
+                gameSceneDict.Add(GameScenes[i].Name, GameScenes[i]);
             }
         }
 
@@ -173,10 +184,14 @@ public class GameSceneController : ScriptableObject
         }
     }
 
-    public void UpdateGameSceneNextScene(int node)
+    public void UpdateGameSceneNextScene(int buttonIndex)
     {
-        // update next game scene node to int node
+        // each game scene will have at most 4 buttons
+        // each button has at most 4 possible next scenes
+        // each button has a list of Options, each Option leads to a different next scene
+
     }
+    
 
 
     // determine if the current game scene data meets the criteria
@@ -214,8 +229,6 @@ public class GameSceneController : ScriptableObject
         }
         return false;
     }
-
-
     public bool VerifyCondition(VarCondition vc)
     {
         switch (vc.type)
@@ -340,6 +353,97 @@ public class GameSceneController : ScriptableObject
         CurrentGameSceneIndex = 3;
         CurrentGameSceneData = getGameSceneDataByIndex(CurrentGameSceneIndex);
     }
+
+    // reuse the decider function for setting variables as a value
+    // if the option is met, set the variable to the value
+    public void decideVariable(List<Option> options, List<string> values, string variable, string type)
+    {
+        foreach (int i; i < options.Count; i++)
+        {
+            if (VerifyOption(options[i]))
+            {
+                switch (options[i].variables[0].type)
+                {
+                    case "bool":
+                        // catch if the value is not a bool
+                        
+                        if (values[i] != "true" && values[i] != "false")
+                        {
+                            Debug.LogWarning("Warning: No valid bool value. Check if the value was valid.");
+                            break;
+                        }
+                        Globals.SetVariable("bool", variable, boolValue: bool.Parse(values[i]));
+                        break;
+                    case "int":
+                        // catch if the value is not an int
+                        if (!int.TryParse(values[i], out int n))
+                        {
+                            Debug.LogWarning("Warning: No valid int value. Check if the value was valid.");
+                            break;
+                        }
+                        Globals.SetVariable("int", variable, intValue: int.Parse(values[i]));
+                        break;
+                    case "float":
+                        // catch if the value is not a float
+                        if (!float.TryParse(values[i], out float n))
+                        {
+                            Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
+                            break;
+                        }
+                        Globals.SetVariable("float", variable, floatValue: float.Parse(values[i]));
+                        break;
+                    case "string":
+                        Globals.SetVariable("string", variable, stringValue: values[i]);
+                        break;
+                    default:
+                        Debug.LogWarning("Warning: No valid type. Check if the type was valid.");
+                        break;    
+                        
+                }
+            break;
+            }
+
+        }
+    }
+
+    // parse string like this into an Option
+    // "S:20-40, H:30-50,P:40-60,A:50-70;  metJae:bool:true,ateApple:int:5;1"
+    // OTHERWISE Option([Criteria(S,0,30), Criteria(H,30,50), Criteria(A,50,70)], [VarCondition(metJae,bool,true), VarCondition(ateApple,int,5)], 1)
+    // ignore spaces
+    // split lists by ;
+
+    public Option ParseOption(string s)
+    {
+        Option o = new Option();
+        // remove spaces from string
+        s = s.Replace(" ", string.Empty);
+        string[] parts = s.Split(';');
+        string[] bounds = parts[0].Split(',');
+        foreach (string b in bounds)
+        {
+            string[] bound = b.Split(':');
+            Criteria c = new Criteria();
+            c.bar = bound[0]
+            string[] range = bound[1].Split('-');
+            c.lowerbound = int.Parse(range[0]);
+            c.upperbound = int.Parse(range[1]);
+            o.bounds.Add(c);
+        }
+        string[] variables = parts[1].Split(',');
+        foreach (string v in variables)
+        {
+            string[] variable = v.Split(':');
+            VarCondition vc = new VarCondition();
+            vc.variable = variable[0];
+            vc.type = variable[1];
+            vc.value = variable[2];
+            o.variables.Add(vc);
+        }
+        o.nextSceneIndex = int.Parse(parts[2]);
+        return o;
+    }
+    
+
     
 
     
