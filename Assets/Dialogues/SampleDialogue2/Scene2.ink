@@ -89,7 +89,7 @@ Maybe I should cast Ark as the prince (mumble mumble mumble)...
 #Center:AnxiousChan
 #CenterExp:2
 #Name:NONE
-The mumbles fade away as Jae walked down the opposite direction.
+The mumbles fade away as {knowJaeName:Jae|the mysterious boy} walked down the opposite direction.
 #CenterExp:0
 It seems he was looking over the lines of a play. He seems to be puzzling over difficult leadership decisions.
 Although it is too late to try to talk to {knowJaeName:Jae|the mysterious boy} now, you have briefly glimpsed into his life.

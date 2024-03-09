@@ -52,15 +52,22 @@ public class GameSceneController : ScriptableObject
 
 
     // test method
+
     public void UpdateGameSceneNextScene(bool willMeetJae)
     {
         if (!willMeetJae)
         {
-            GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[0];
+            if (GameScenes[0].Name == "Scene1")
+            {
+                GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[0];
+            }
         }
         if (willMeetJae)
         {
-            GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[1];
+            if (GameScenes[0].Name == "Scene0")
+            {
+                GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[1];
+            }
         }
     }
 

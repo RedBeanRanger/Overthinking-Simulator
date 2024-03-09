@@ -1025,7 +1025,6 @@ MonoBehaviour:
   - {fileID: 1863234606}
   - {fileID: 523976735}
   choicesTexts: []
-  barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
 --- !u!4 &596072018
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,15 +1496,16 @@ MonoBehaviour:
   - {fileID: 240992706, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: -208718514, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
   - {fileID: 368234819, guid: 9ece3cab6b53d514fa530fecb63a51bd, type: 3}
-  HistoryTeacherSprites:
-  - {fileID: 953856385, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
-  - {fileID: 2038504024, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
   BlondeFriendSprites:
   - {fileID: 1335189894, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -693676036, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -196314961, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: -272381973, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
   - {fileID: 1128090945, guid: 7ca3ffb31517dab4db3e0dc9c4934e7c, type: 3}
+  StudentSprites: []
+  HistoryTeacherSprites:
+  - {fileID: 953856385, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
+  - {fileID: 2038504024, guid: e20bb293fb63b6e4d87c47ce57373816, type: 3}
   NPCSprites:
   - {fileID: -988781329524767699, guid: bedbd62f33ae15340b217819632af44d, type: 3}
   - {fileID: 1079402678001840046, guid: bedbd62f33ae15340b217819632af44d, type: 3}
@@ -2272,6 +2272,20 @@ MonoBehaviour:
   transitionTweener: {fileID: 136158841}
   barControllerSO: {fileID: 11400000, guid: b5abb5749439b5d43bb638b846fe925a, type: 2}
   gameSceneControllerSO: {fileID: 11400000, guid: e709af955c804b3418cc8bea7db873d7, type: 2}
+  globalVarsFile:
+    compileAutomatically: 0
+    inkAsset: {fileID: 102900000, guid: 92a82f255bb3c2a4696709ef9fab3686, type: 3}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 0}
+    unhandledCompileErrors: []
+    errors: []
+    warnings: []
+    todos: []
+    parents: []
+    masterInkAssets: []
+    masterInkAsset: {fileID: 0}
+    includePaths: []
+    includes: []
 --- !u!4 &1607934605
 Transform:
   m_ObjectHideFlags: 0

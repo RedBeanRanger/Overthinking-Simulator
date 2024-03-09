@@ -158,7 +158,7 @@ public class DialogueHandler : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        //Debug.Log("You choose choice: " + choiceIndex);
+        Debug.Log("You choose choice: " + choiceIndex);
         CurrentInkStory.ChooseChoiceIndex(choiceIndex);
         disableAllChoices();
         areThereChoices = false;
@@ -199,6 +199,7 @@ public class DialogueHandler : MonoBehaviour
             choiceButtons[ind].SetActive(true);
             choicesTexts[ind].text = c.text;
             ind += 1;
+            Debug.Log("Assign ind " + ind);
         }
 
         for (int i = ind; i < choiceButtons.Length; i++)

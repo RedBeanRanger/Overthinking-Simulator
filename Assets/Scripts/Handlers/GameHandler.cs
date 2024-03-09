@@ -46,8 +46,6 @@ public class GameHandler : MonoBehaviour
     private BarController barControllerSO;
     [SerializeField]
     private GameSceneController gameSceneControllerSO;
-    [SerializeField]
-    private VariableController varaibleControllerSO;
 
     // InkGlobalVars
     [SerializeField]

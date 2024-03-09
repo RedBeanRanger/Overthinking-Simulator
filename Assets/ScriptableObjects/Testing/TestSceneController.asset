@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: TestSceneController
   m_EditorClassIdentifier: 
   GameScenes:
-  - {fileID: 11400000, guid: 9d1e30de7ef1dc7469c416495eec100e, type: 2}
-  - {fileID: 11400000, guid: b222a03c5b35af3439519af4adf2c2aa, type: 2}
-  - {fileID: 11400000, guid: a7d7d0e37f2cc1d46b1cd2640b769c15, type: 2}
-  CurrentGameSceneData: {fileID: 11400000, guid: 9d1e30de7ef1dc7469c416495eec100e, type: 2}
+  - {fileID: 11400000, guid: 4050b111dc2e173459c969380b67fce4, type: 2}
+  CurrentGameSceneData: {fileID: 11400000, guid: 4050b111dc2e173459c969380b67fce4, type: 2}
   CurrentGameSceneIndex: 0
