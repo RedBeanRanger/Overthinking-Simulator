@@ -1,5 +1,6 @@
 INCLUDE Utility/GlobalVars.ink
 
+
 -> SCENE0
 
 ===SCENE0===
@@ -14,12 +15,15 @@ Ohoh! Here comes the choice.
     * [Go to Scene 1]
         Nice.
         ~isFunScene1 = false
+        ~buttonIndex = 0
         ->END
     * [Go to Scene 1 with some additional fancy schmancy things]
         Cool.
         ~isFunScene1 = true
+        ~buttonIndex = 1
         ->END
     * [Go to Scene 2]
         Alright.
-        ~willMeetJae = true
+        //~willMeetJae = true
+        ~buttonIndex = 2
         ->END

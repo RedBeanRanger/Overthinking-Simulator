@@ -203,13 +203,20 @@ public class GameHandler : MonoBehaviour
                 //Will meet jae?
                 //write a event for button press in ink
 
-                bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
+                int buttonIndex = ((Ink.Runtime.IntValue)GetVariableState("buttonIndex")).value;
+
+
 
                 //string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = ""
-                Globals.SetVariable("bool", "willMeetJae", willMeetJae);
+                Globals.SetVariable("int", "buttonIndex", false, buttonIndex, 0.0f, "");
 
+                //string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = ""
+
+                //Globals.SetVariable("bool", "willMeetJae", willMeetJae);
+                //bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
 
                 //gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+                gameSceneControllerSO.UpdateGameSceneNextScene();
 
 
 

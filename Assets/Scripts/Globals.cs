@@ -12,6 +12,20 @@ public static class Globals
 
 
     // add a variable to the dictionary
+    /*
+    public static void SetVariable(string dict, intValue = 0)
+    {
+        if (intVariables.ContainsKey(variableName))
+        {
+            intVariables[variableName] = intValue;
+        }
+        else
+        {
+            intVariables.Add(variableName, intValue);
+        }
+    }
+    */
+
     public static void SetVariable(string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = "")
     {
         switch (dict)

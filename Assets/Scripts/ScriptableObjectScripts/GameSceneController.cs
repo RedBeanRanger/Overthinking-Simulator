@@ -139,11 +139,33 @@ public class GameSceneController : ScriptableObject
     }
 
 
-    public void UpdateGameSceneNextScene(int buttonIndex)
+    public void UpdateGameSceneNextScene()
     {
         // each game scene will have at most 4 buttons
         // each button has at most 4 possible next scenes
         // each button has a list of Options, each Option leads to a different next scene
+        
+
+        /**
+        // define struct for Option
+public struct Option
+{
+    public List<Criteria> bounds;
+
+    // list of variables to check if true
+    public List<VarCondition> variables;
+    public int nextSceneIndex; // default to 0
+
+}
+        **/
+        ButtonOutcome buttonOutcome = GameScenes[0].ButtonOutcomes[Globals.intVariables["buttonIndex"]];
+        if(buttonOutcome != null){
+            Option option = ParseOption(";;0");
+            buttonOutcome.options.Add(option);
+        }
+        Debug.Log("Globals, buttonindex: " + Globals.intVariables["buttonIndex"]);
+        decider(buttonOutcome.options);
+
     }
     
 
@@ -303,8 +325,8 @@ public class GameSceneController : ScriptableObject
                 return;
             }
         }
-        // else, default to fourth option
-        CurrentGameSceneIndex = 3;
+        // else, default to first option
+        CurrentGameSceneIndex = 0;
         CurrentGameSceneData = getGameSceneDataByIndex(CurrentGameSceneIndex);
     }
 

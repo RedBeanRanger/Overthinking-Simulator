@@ -7,3 +7,4 @@ VAR ABAR_VAL = 0
 // booleans
 VAR isFunScene1 = false
 VAR willMeetJae = false
+VAR buttonIndex = 0
