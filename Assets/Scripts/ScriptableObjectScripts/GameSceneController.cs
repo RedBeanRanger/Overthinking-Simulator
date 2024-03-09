@@ -48,67 +48,6 @@ public struct VarCondition
 
 [CreateAssetMenu(fileName = "Game Scene Controller SO", menuName = "ScriptableObjects/Game Scene Controller SO")]
 
-public static class Globals
-{
-    // dictionary of all game variables
-    public static Dictionary<string, bool> boolVariables = new Dictionary<string, bool>();
-    public static Dictionary<string, int> intVariables = new Dictionary<string, int>();
-    public static Dictionary<string, float> floatVariables = new Dictionary<string, float>();
-    public static Dictionary<string, string> stringVariables = new Dictionary<string, string>();
-
-
-    // add a variable to the dictionary
-    public static void SetVariable(string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = "")
-    {
-        switch (dict)
-        {
-            case "bool":
-                if (boolVariables.ContainsKey(variableName))
-                {
-                    boolVariables[variableName] = boolValue;
-                }
-                else
-                {
-                    boolVariables.Add(variableName, boolValue);
-                }
-                break;
-            case "int":
-                if (intVariables.ContainsKey(variableName))
-                {
-                    intVariables[variableName] = intValue;
-                }
-                else
-                {
-                    intVariables.Add(variableName, intValue);
-                }
-                break;
-            case "float":
-                if (floatVariables.ContainsKey(variableName))
-                {
-                    floatVariables[variableName] = floatValue;
-                }
-                else
-                {
-                    floatVariables.Add(variableName, floatValue);
-                }
-                break;
-            case "string":
-                if (stringVariables.ContainsKey(variableName))
-                {
-                    stringVariables[variableName] = stringValue;
-                }
-                else
-                {
-                    stringVariables.Add(variableName, stringValue);
-                }
-                break;
-            default:
-                Debug.LogWarning("Warning: No valid dictionary. Check if the dictionary was valid.");
-                break;
-        }
-    }
-}
-
 /// <summary>
 /// CLASS GAMESCENECONTROLLER
 /// </summary>
@@ -401,10 +340,6 @@ public class GameSceneController : ScriptableObject
                     case "float":
                         // catch if the value is not a float
                         if (!float.TryParse(values[i], out float m))
-                        {
-                            Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
-                            break;
-                        }
                         {
                             Debug.LogWarning("Warning: No valid float value. Check if the value was valid.");
                             break;
