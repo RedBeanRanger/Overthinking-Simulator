@@ -16,7 +16,7 @@ public struct Option
 }
 
 // decide next game scene given current scene
-// should be able to input a list of criteria for the bars Sbar, Hbar, Pbar, Abar
+// should be able to input a list of criteria for the bars SBar, HBar, PBar, ABar
 // either larger than or smaller than for each value
 // and what corresponds to an index in the next game scene
 
@@ -109,8 +109,9 @@ public static class Globals
     }
 }
 
-
-
+/// <summary>
+/// CLASS GAMESCENECONTROLLER
+/// </summary>
 
 public class GameSceneController : ScriptableObject
 {
@@ -123,10 +124,20 @@ public class GameSceneController : ScriptableObject
     public GameSceneData CurrentGameSceneData;
     public int CurrentGameSceneIndex;
 
+<<<<<<< HEAD
 
     // game scene dictionary
     // name to game scene data
     public Dictionary<string, GameSceneData> gameSceneDict = new Dictionary<string, GameSceneData>();
+=======
+    public int SBar;
+    public int HBar;
+    public int PBar;
+    public int ABar;
+
+    //*****Unity Events*****//
+
+>>>>>>> cf2b589dc8cb136df2c7463c456a9f91744ec9a0
     //*****private variables*****//
     private string[] gameSceneNames;
 
@@ -173,6 +184,7 @@ public class GameSceneController : ScriptableObject
 
     public void UpdateGameSceneNextScene(bool willMeetJae)
     {
+        // this is only needed if it runs every update :D
         if (!willMeetJae)
         {
             if (GameScenes[0].Name == "Scene1")
@@ -180,6 +192,8 @@ public class GameSceneController : ScriptableObject
                 GameScenes[0].NextScene = GameScenes[0].PossibleNextScenes[0];
             }
         }
+
+        // actual checker
         if (willMeetJae)
         {
             if (GameScenes[0].Name == "Scene0")
@@ -189,12 +203,12 @@ public class GameSceneController : ScriptableObject
         }
     }
 
+
     public void UpdateGameSceneNextScene(int buttonIndex)
     {
         // each game scene will have at most 4 buttons
         // each button has at most 4 possible next scenes
         // each button has a list of Options, each Option leads to a different next scene
-
     }
     
 
@@ -205,25 +219,25 @@ public class GameSceneController : ScriptableObject
         switch (c.bar)
         {
             case "S":
-                if (CurrentGameSceneData.SBar >= c.lowerbound && CurrentGameSceneData.Sbar <= c.upperbound)
+                if (SBar >= c.lowerbound && SBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "H":
-                if (CurrentGameSceneData.Hbar >= c.lowerbound && CurrentGameSceneData.Hbar <= c.upperbound)
+                if (HBar >= c.lowerbound && HBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "P":
-                if (CurrentGameSceneData.Pbar >= c.lowerbound && CurrentGameSceneData.Pbar <= c.upperbound)
+                if (PBar >= c.lowerbound && PBar <= c.upperbound)
                 {
                     return true;
                 }
                 break;
             case "A":
-                if (CurrentGameSceneData.Abar >= c.lowerbound && CurrentGameSceneData.Abar <= c.upperbound)
+                if (ABar >= c.lowerbound && ABar <= c.upperbound)
                 {
                     return true;
                 }

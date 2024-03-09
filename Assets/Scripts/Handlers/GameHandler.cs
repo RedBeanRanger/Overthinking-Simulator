@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour
 
     // UnityEvents
     public UnityEvent LoadGameEvent;
+    public UnityEvent ButtonPressEvent;
 
     // Game UI
     // for testing purposes
@@ -81,6 +82,8 @@ public class GameHandler : MonoBehaviour
         //Debug.Log("Game Handler is Awake");
         init();
 
+        //
+
     }
 
     void Start()
@@ -119,6 +122,8 @@ public class GameHandler : MonoBehaviour
         // listen for a BarValueChangeEvent from barController ScriptableObject, as soon as that event fires, run ChangeSliderValue
         barControllerSO.BarValueChangeEvent.AddListener(ChangeSliderValue);
         barControllerSO.BarValueChangeEvent.AddListener(UpdateInkBars);
+
+        //whenever this updates, I want to feed in new values to GameSceneControllerSO
 
 
         // listen for the LoadGameEvent
@@ -196,8 +201,18 @@ public class GameHandler : MonoBehaviour
                 //*****For testing purposes
 
                 //Will meet jae?
+                //write a event for button press in ink
+
                 bool willMeetJae = ((Ink.Runtime.BoolValue)GetVariableState("willMeetJae")).value;
-                gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+
+                //string dict, string variableName, bool boolValue = false, int intValue = 0, float floatValue = 0.0f, string stringValue = ""
+                Globals.AddVariable("bool", "willMeetJae", willMeetJae);
+
+
+                //gameSceneControllerSO.UpdateGameSceneNextScene(willMeetJae);
+
+
+
 
                 //The following block of code loops the game back when it's done.
                 //TODO make game ended logic when this happens instead.
@@ -246,20 +261,24 @@ public class GameHandler : MonoBehaviour
                 //SBar.value = Mathf.Lerp(oldValue, (float)newBarValue, Time.deltaTime * 3);
                 //SBar.value = (float)newBarValue;
                 //Debug.Log("SBar Value Changed.");
+                gameSceneControllerSO.SBar = newBarValue;
                 break;
             case "HBar":
                 StartCoroutine(LerpHBar(newBarValue));
                 //HBar.value = (float)newBarValue;
                 //Debug.Log("HBar Value Changed.");
+                gameSceneControllerSO.HBar = newBarValue;
                 break;
             case "PBar":
                 StartCoroutine(LerpPBar(newBarValue));
                 //PBar.value = (float)newBarValue;
                 //Debug.Log("PBar Value Changed.");
+                gameSceneControllerSO.PBar = newBarValue;
                 break;
             case "ABar":
                 StartCoroutine(LerpABar(newBarValue));
                 //ABar.value = (float)newBarValue;
+                gameSceneControllerSO.ABar = newBarValue;
                 break;
 
         }
@@ -313,6 +332,7 @@ public class GameHandler : MonoBehaviour
         SpriteHandlerObject = GameObject.Find("SpriteHandler");
         initSingletonHandler("Dialogue", DialogueHandlerObject);
         initSingletonHandler("Sprite", SpriteHandlerObject);
+
 
         // Create new Manager object
         ConfigManager = new ConfigManager();
